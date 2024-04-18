@@ -2,7 +2,7 @@
 
 ¡Bienvenido al repositorio de AustralTech! 🌟
 
-Somos un equipo de tres apasionados por el desarrollo web que colaboramos en la creación de increíbles páginas web y aplicaciones. 💻💡
+Somos un equipo  apasionados por el desarrollo web que colaboramos en la creación de increíbles páginas web y aplicaciones. 💻💡
 
 ## Acerca de nosotros ℹ️
 
