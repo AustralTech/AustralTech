@@ -1,5 +1,5 @@
 # 🚀 AustralTech
-<img align='right' src="https://media4.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" width="230">
+
 ¡Bienvenido al repositorio de AustralTech! 🌟
 
 Somos un equipo de tres apasionados por el desarrollo web que colaboramos en la creación de increíbles páginas web y aplicaciones. 💻💡
@@ -14,7 +14,7 @@ Estamos comprometidos a ofrecer soluciones creativas y de alta calidad para sati
 1. **Proyecto 1**: Página de turnos para consultorio especialidades medicas.(en proceso)
 
 ## Tecnologías 🛠️
-
+<img align='right' src="https://media4.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" width="230">
 Utilizaremos una variedad de tecnologías y herramientas para crear nuestra aplicacion web, incluyendo:
 
 - CSS
