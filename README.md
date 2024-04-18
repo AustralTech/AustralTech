@@ -1,5 +1,5 @@
 # 🚀 AustralTech
-
+<img align='right' src="https://media4.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" width="230">
 ¡Bienvenido al repositorio de AustralTech! 🌟
 
 Somos un equipo de tres apasionados por el desarrollo web que colaboramos en la creación de increíbles páginas web y aplicaciones. 💻💡
@@ -16,7 +16,7 @@ Estamos comprometidos a ofrecer soluciones creativas y de alta calidad para sati
 ## Tecnologías 🛠️
 
 Utilizaremos una variedad de tecnologías y herramientas para crear nuestra aplicacion web, incluyendo:
-<img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="60"> <em><b>
+
 - CSS
 - JavaScript / ES6+
 - React.js / redux.js
