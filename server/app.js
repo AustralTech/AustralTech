@@ -10,7 +10,7 @@ import session from 'express-session';
 import { sequelize } from './src/config/database.js';
 import indexRouter from './src/routes/index.js';
 
-//import validateEnv from './src/config/validators/env.js';
+import validateEnv from './src/config/validators/env.js';
 
 import errorHandler from './src/middlewares/errorHandler.js';
 
@@ -18,18 +18,28 @@ dotenv.config();
 const app = express();
 
 // Database connection and generation
-const main = async () => {
+const authenticateDatabase = async () => {
   try {
-    await sequelize.sync();
-    console.log('Connection has been established successfully.');
+    await sequelize.authenticate();
+    console.log('Connection to the database has been established successfully.');
   } catch (error) {
-    console.error('Unable to connect to the database:', error);
+    console.error('Unable to connect to the database:', error.message);
+    throw error;
   }
 };
 
-//main();
+const main = async () => {
+  try {
+    await authenticateDatabase();
+  } catch (error) {
+    console.error('An unexpected error occurred:', error);
+    process.exit(1);
+  }
+};
 
-//validateEnv.validate();
+main();
+
+validateEnv;
 
 // HTTP security headers
 app.use(helmet());
@@ -82,8 +92,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.listen(PORT, () => {
-  console.log("Hola soy una variable de entorno", process.env.PORT);
-  console.log(`app listening on port ${PORT}!`);
+  console.log(`App listening on port ${PORT}!`);
 });
 
 app.use('/api', indexRouter);

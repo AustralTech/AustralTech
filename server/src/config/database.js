@@ -1,5 +1,7 @@
 import { Sequelize } from 'sequelize';
 import logger from '../utils/logger.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const sequelizeOptions = {
   logging: (msg) => logger.debug(`Database: ${process.env.DB_DATABASE} - ${msg}`),
@@ -7,7 +9,6 @@ const sequelizeOptions = {
   port: process.env.DB_PORT,
   dialect: 'mysql',
   operatorsAliases: '0',
-  timezone: 'America/Argentina/Buenos_Aires',
   dialectOptions: {
     dateStrings: true,
     typeCast: true,

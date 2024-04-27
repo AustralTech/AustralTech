@@ -11,7 +11,7 @@ const validateEnv = cleanEnv(process.env, {
   DB_PASSWORD: str(),
   DB_DATABASE: str(),
   DB_DIALECT: str(),
-  LOG_LEVEL: str({ choices: ['debug', 'info', 'error'] }),
+  LOG_LEVEL: str({ choices: ['trace', 'debug', 'info', 'error'] }),
   CORS: str(),
 })
 
