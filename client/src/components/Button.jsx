@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Button = ({ type, title, variant }) => {
   return (
     <button type={type} className={`flexCenter gap-3 border ${variant}`}>
-      <label className="whitespace-nowrap">{title}</label>
+      <label className="whitespace-nowrap cursor-pointer">{title}</label>
     </button>
   )
 }

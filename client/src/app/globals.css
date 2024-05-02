@@ -69,7 +69,7 @@ body {
   }
 
   .logo-2-responsive {
-    @apply subtitle customblue text-lg font-bold;
+    @apply subtitle customblue text-base font-bold;
   }
 
   .max-container {
@@ -91,7 +91,7 @@ body {
 
   /* Flex */
   .flexCenter {
-    @apply flex items-center justify-center;
+    @apply flex justify-center items-center;
   }
 
   .flexBetween {

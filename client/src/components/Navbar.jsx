@@ -34,10 +34,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="flexBetween max-container padding-container relative z-30 py-5 mx-auto">
+    <nav className="flex justify-between z-30 py-5 px-5">
       <LogoLink />
       <DesktopNavLinks />
-      <div className="lg:flexCenter hidden">
+      <div className="lg:flexCenter hidden lg:pr-5 lg:mr-5">
         <Button
           type="button"
           title="Iniciar sesión"
