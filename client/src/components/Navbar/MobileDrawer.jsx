@@ -1,10 +1,8 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-
 import { NAV_LINKS } from "@/constants"
-import Button from './Button';
+import Button from '../Button';
 
 export function MobileDrawer({ isOpen, onClose }) {
   return (

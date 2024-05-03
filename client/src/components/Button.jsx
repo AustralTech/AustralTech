@@ -1,9 +1,8 @@
-import Image from 'next/image';
 import PropTypes from 'prop-types';
 
-const Button = ({ type, title, variant }) => {
+const Button = ({ type, title, variant, onClick, onClose }) => {
   return (
-    <button type={type} className={`flexCenter gap-3 border ${variant}`}>
+    <button type={type} className={`flexCenter gap-3 border ${variant}`} onClick={onClick} onClose={onClose}>
       <label className="whitespace-nowrap cursor-pointer">{title}</label>
     </button>
   )
