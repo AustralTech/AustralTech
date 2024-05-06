@@ -26,10 +26,16 @@ const LoginModal = ({ isVisible, onClose }) => {
       <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flexCenter">
         <div className="container relative" ref={modalRef}>
           <div className="relative">
-            <button className="text-1xl absolute top-0 right-0" onClick={() => onClose()}>
-              <FontAwesomeIcon icon={faTimes} className="mb-5" />
-            </button>
-            <div className="heading">Bienvenido</div>
+            <div class="grid grid-rows-3 gap-0">
+              <div class="col-span-2 flex items-center justify-end mb-2">
+                <button className="text-1xl text-zinc-400" onClick={() => onClose()}>
+                  <FontAwesomeIcon icon={faTimes} className="mb-0 " />
+                </button>
+              </div>
+              <div class="row-span-2 col-span-2">
+                <div className="heading">Bienvenido</div>
+              </div>
+            </div>
             <form action="" className="form">
               <input required="" className="input" type="email" name="email" id="email" placeholder="E-mail" />
               <input required="" className="input" type="password" name="password" id="password" placeholder="Contraseña" />
