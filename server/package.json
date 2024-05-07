@@ -33,5 +33,9 @@
     "swagger-ui-express": "^5.0.0",
     "winston": "^3.13.0",
     "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.24.5",
+    "@babel/register": "^7.23.7"
   }
 }

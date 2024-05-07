@@ -21,8 +21,7 @@ const sequelizeOptions = {
   },
   define: {
     timestamps: true, // Agrega createdAt y updatedAt a todas las tablas
-    paranoid: true,   // Habilita la eliminación suave. Agrega la columna deletedAt
-    underscored: true,  // Utiliza snake_case en lugar de camelCase para los nombres de las columnas
+    paranoid: true   // Habilita la eliminación suave. Agrega la columna deletedAt
   }
 };
 
