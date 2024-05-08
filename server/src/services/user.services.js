@@ -50,13 +50,13 @@ const updateUserById = async (id, userData) => {
 // que utilice consultas SQL para eliminar el perfil del paciente de la base de datos.
 // El borrado debe ser lógico, es decir, cambiar el atributo isActive a false.
 
-const deleteBy = async (id) => {
+const deleteUserById = async (id) => {
     try {
         const user = await userRepository.getById(id);
         if (!user) {
             throw new Error('Usuario no encontrado');
         }
-        const updatedUser = await userRepository.deleteBy(id);
+        const updatedUser = await user.deleteUserById(id);
         return updatedUser;
     } catch (error) {
         throw new Error('Error al eliminar el usuario');
@@ -66,7 +66,7 @@ const deleteBy = async (id) => {
 //crear usuario con los datos proporcionados, y verificar si no hay otro usuario con el mismo email o DNI, y si no lo hay, guardar el usuario en la base de datos
 // por defecto poner el admin en false, porque es un usuario comun y el active en true
 
-const create = async (userData) => {
+const createUser = async (userData) => {
     try {
         // Verificar si ya existe un usuario con el mismo email
         const emailExist = await userRepository.checkIfExist("email", userData.email);
@@ -81,7 +81,7 @@ const create = async (userData) => {
         }
 
         // Crear el usuario utilizando el modelo User
-        const newUser = await userRepository.create(userData);
+        const newUser = await userRepository.createUser(userData);
         return newUser;
     } catch (error) {
         throw new Error('Error al crear el usuario: ' + error.message);
@@ -93,8 +93,8 @@ export const userService = {
     getAll,
     getById,
     updateUserById,
-    deleteBy,
-    create
+    deleteUserById,
+    createUser
 };
 
 

@@ -4,7 +4,7 @@ import User from "../models/user.js";
 //crear un usuario: Define una función en el repositorio que reciba como parámetro los datos de un nuevo usuario
 // y que utilice consultas SQL para almacenar el nuevo usuario en la base de datos.
 
-const create = async (userData) => {
+const createUser = async (userData) => {
     try {
         const newUser = await User.create(userData);
         return newUser;
@@ -72,7 +72,7 @@ const updateUserById = async (id, userData) => {
 // que utilice consultas SQL para eliminar el perfil del paciente de la base de datos. 
 //El borrado debe ser lógico, es decir, cambiar el atributo isActive a false.
 
-const deleteBy = async (id) => {
+const deleteUserById = async (id) => {
     try {
         const user = await User.findByPk(id);
         if (!user) {
@@ -105,7 +105,7 @@ export const userRepository = {
     getAll, 
     getById,
     updateUserById,
-    deleteBy,
-    create,
+    deleteUserById,
+    createUser,
     checkIfExist
   };

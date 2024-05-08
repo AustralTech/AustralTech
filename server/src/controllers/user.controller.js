@@ -24,7 +24,7 @@ const getAllUsers = async (req, res, next) => {
 const createUser = async (req, res, next) => {
   try {
     // Crear un nuevo usuario utilizando el servicio correspondiente
-    const newUser = await userService.create(req.body);
+    const newUser = await userService.createUser(req.body);
 
     // Enviar el nuevo usuario como respuesta
     res.status(201).json(newUser);
@@ -51,10 +51,10 @@ const updateUser = async (req, res, next) => {
 };
 
 
-const deleteUser = async (req, res, next) => {
+const deleteUserById = async (req, res, next) => {
   try {
     // Eliminar el usuario utilizando el servicio correspondiente
-    await userService.deleteBy(req.params.id);
+    await userService.deleteUserById(req.params.id);
 
     // Enviar una respuesta exitosa
     res.status(200).json();
@@ -83,6 +83,6 @@ const getById = async (req, res, next) => {
 export { getAllUsers,
           createUser,
           updateUser,
-          deleteUser,
+          deleteUserById,
           getById
  };
