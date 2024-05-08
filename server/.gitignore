@@ -9,6 +9,8 @@ lerna-debug.log*
 
 # Directorios de dependencias
 node_modules
+src/migrations/*.js
+
 
 # Directorios de salida de compilación
 dist

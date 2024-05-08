@@ -4,7 +4,7 @@ import { getAllUsers, createUser, updateUser, deleteUser, getById } from '../con
 const router = Router();
 
 // Define la ruta para obtener todos los usuarios
-router.get('/', getAllUsers);
+router.get('/all', getAllUsers);
 
 
 
