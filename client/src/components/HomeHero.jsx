@@ -1,8 +1,9 @@
+import React from 'react'
 
-function HomeHero() {
+const HomeHero = () => {
   return (
-    <div className="home-hero">
-      <h1>Home Hero</h1>
-    </div>
-  );
+    <div>HomeHero</div>
+  )
 }
+
+export default HomeHero
