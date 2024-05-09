@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { Transition } from '@headlessui/react';
 import '../../styles/loginmodal.css'
 
 const LoginModal = ({ isVisible, onClose }) => {
@@ -24,7 +23,7 @@ const LoginModal = ({ isVisible, onClose }) => {
   return (
     <>
       <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flexCenter">
-        <div className="container relative" ref={modalRef} data-aos="fade-left">
+        <div className={`container relative ${isVisible ? "fade-left" : "fadeOut"}`} ref={modalRef} data-aos="fade-left">
           <div className="relative">
             <div class="grid grid-rows-3 gap-0">
               <div class="col-span-2 flex items-center justify-end mb-2">
