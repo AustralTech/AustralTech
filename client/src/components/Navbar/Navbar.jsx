@@ -1,12 +1,11 @@
-'use client';
-import { Fragment, useEffect, useState } from 'react';
-import Button from '../Button';
-import { LogoLink } from './LogoLink';
-import { MobileDrawer } from './MobileDrawer';
-import { DesktopNavLinks } from './DesktopNavLinks';
-import { MobileMenuButton } from './MobileMenuButton';
-
-import LoginModal from '../Forms/LoginModal';
+"use client"
+import { Fragment, useEffect, useState } from "react";
+import Button from "../Button";
+import { LogoLink } from "./LogoLink";
+import { MobileDrawer } from "./MobileDrawer";
+import { DesktopNavLinks } from "./DesktopNavLinks";
+import { MobileMenuButton } from "./MobileMenuButton";
+import LoginModal from "../Forms/LoginModal";
 
 const Navbar = () => {
 
@@ -15,7 +14,6 @@ const Navbar = () => {
 
   const handleDrawerToggle = () => setIsDrawerOpen(!isDrawerOpen);
   const handleLoginModalToggle = () => setIsModalOpen(!isModalOpen);
-
 
   // Limpiar el estado del menú cuando se cambie a una pantalla grande
   useEffect(() => {
@@ -47,8 +45,6 @@ const Navbar = () => {
         </div>
         <MobileMenuButton onClick={handleDrawerToggle} />
         <MobileDrawer isOpen={isDrawerOpen} onClose={handleDrawerToggle} />
-
-
         {/* Renderiza el modal de inicio de sesión si isModalOpen es true */}
         <LoginModal isVisible={isModalOpen} onClose={handleLoginModalToggle} />
       </nav>

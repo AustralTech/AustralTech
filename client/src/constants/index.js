@@ -1,10 +1,10 @@
 // Navigation
 export const NAV_LINKS = [
   { href: '/', key: 'home', label: 'Inicio' },
-  { href: '/', key: 'specialties', label: 'Especialidades' },
-  { href: '/', key: 'appointments', label: 'Turnos' },
-  { href: '/', key: 'about ', label: 'Sobre nosotros' },
-  { href: '/', key: 'contact_us', label: 'Contacto' },
+  { href: '/specialities', key: 'specialities', label: 'Especialidades' },
+  { href: '/appointments', key: 'appointments', label: 'Turnos' },
+  { href: '/about', key: 'about ', label: 'Sobre nosotros' },
+  { href: '/contact', key: 'contact_us', label: 'Contacto' },
 ];
 
 // Footer
