@@ -32,27 +32,60 @@ const findDoctorbySpeciality = async (specialtyId) => {
 
 const createDoctor = async (doctorData) => {
     try {
+        const licence = doctorData.licence;
+        if(licence){
+            const licence_exists = await doctorRepository.checkLicence(licence);
+            if(licence_exists){
+                throw new Error(`Doctor with licence ${licence} already exists`);
+            }
+        }
+        const email = doctorData.email;
+        if(email){
+            const email_exists = await doctorRepository.checkEmail(email);
+            if(email_exists){
+                throw new Error(`Doctor with email ${email} already exists`);
+            }
+        }
         const newDoctor = await doctorRepository.createDoctor(doctorData);
         return newDoctor;
     } catch (error) {
       console.error("Error en el servicio al crear doctor:", error);
-      throw new Error("Error al crear doctor");
+      throw error;
     }
 }
 
-const updateDoctor = async (id, doctor) => {
-    try {
-        const doctorToUpdate = await doctorRepository.updateDoctor(id, doctor);
-        return doctorToUpdate;
-    } catch (error) {
-      console.error("Error en el servicio al actualizar doctor:", error);
-      throw new Error("Error al actualizar doctor");
+const updateDoctor = async (id, doctorData) => {
+  try {
+    const doctorToUpdate = await doctorRepository.findDoctorbyid(id);
+    if (!doctorToUpdate) {
+      throw new Error(`Doctor with ID ${id} not found`);
     }
-}
+    const licence = doctorData.licence;
+        if(licence){
+            const licence_exists = await doctorRepository.checkLicence(licence);
+            if(licence_exists){
+                throw new Error(`Doctor with licence ${licence} already exists`);
+            }
+        }
+    const email = doctorData.email;
+    if(email){
+        const email_exists = await doctorRepository.checkEmail(email);
+        if(email_exists){
+            throw new Error(`Doctor with email ${email} already exists`);
+        }
+    }
+    await doctorRepository.updateDoctor(id, doctorData);
+    return doctorToUpdate;
+  } catch (error) {
+    console.error("Error en el servicio al actualizar doctor:", error);
+    throw error;
+  }
+};
+
 
 const deleteDoctor = async (id) => {
     try {
-        const doctorToDelete = await doctorRepository.findDoctorById(id);
+        const doctorToDelete = await doctorRepository.findDoctorbyid(id);
         if (doctorToDelete) {
             await doctorRepository.deleteDoctor(id);
         }
