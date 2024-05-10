@@ -1,18 +1,13 @@
-import Link from 'next/link';
-import { Fragment, useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { NAV_LINKS } from "@/constants"
-import Button from '../Button';
-import Aos from 'aos';
-
+import Link from "next/link";
+import { Fragment, useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { NAV_LINKS } from "@/constants";
+import Button from "../Button";
 import 'aos/dist/aos.css';
-
-
 import LoginModal from '../Forms/LoginModal';
 
 export function MobileDrawer({ isOpen, onClose }) {
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleLoginModalToggle = () => setIsModalOpen(!isModalOpen);

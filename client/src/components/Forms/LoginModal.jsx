@@ -1,12 +1,39 @@
-import { useEffect, useRef } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import '../../styles/loginmodal.css'
+import { useEffect, useState, useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import Button from "../Button";
+import "../../styles/loginmodal.css";
 
 const LoginModal = ({ isVisible, onClose }) => {
   if (!isVisible) return null;
 
   let modalRef = useRef();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleEmailChange = (e) => setEmail(e.target.value);
+  const handlePasswordChange = (e) => setPassword(e.target.value);
+
+  const handleLogin = async () => {
+    try {
+      const response = await fetch('http://localhost:4000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        // Aquí puedes manejar el caso de inicio de sesión exitoso, como redirigir al usuario a otra página
+      } else {
+        // Aquí puedes manejar el caso de inicio de sesión fallido, como mostrar un mensaje de error
+      }
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+    }
+  };
 
   // e.target
   function checkClickOutside(e) {
@@ -25,21 +52,41 @@ const LoginModal = ({ isVisible, onClose }) => {
       <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flexCenter">
         <div className={`container relative ${isVisible ? "fade-left" : "fadeOut"}`} ref={modalRef} data-aos="fade-left">
           <div className="relative">
-            <div class="grid grid-rows-3 gap-0">
-              <div class="col-span-2 flex items-center justify-end mb-2">
+            <div className="grid grid-rows-3 gap-0">
+              <div className="col-span-2 flex items-center justify-end mb-2">
                 <button className="text-1xl text-zinc-400" onClick={() => onClose()}>
                   <FontAwesomeIcon icon={faTimes} className="mb-0 " />
                 </button>
               </div>
-              <div class="row-span-2 col-span-2">
+              <div className="row-span-2 col-span-2">
                 <div className="heading">Bienvenido</div>
               </div>
             </div>
             <form action="" className="form">
-              <input required="" className="input" type="email" name="email" id="email" placeholder="E-mail" />
-              <input required="" className="input" type="password" name="password" id="password" placeholder="Contraseña" />
+              <input
+                required
+                className="input"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="E-mail"
+
+              />
+              <input
+                required
+                className="input"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Contraseña"
+
+              />
               <span className="forgot-password"><a href="#">¿Olvidaste la contraseña?</a></span>
-              <input className="login-button rounded" type="submit" value="Iniciar sesión" />
+              <Button
+                type="button"
+                title="Iniciar sesión"
+                variant="login-button rounded"
+              />
             </form>
             <div className="social-account-container">
               <span className="title">O ingresar con</span>
