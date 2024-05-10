@@ -1,26 +1,27 @@
-import db from "../models";
+//import db from "../models";
+import Appointment from "../models/appointment";
 
 export default class AppointmentRepository {
   async createAppointment(appointment) {
-    return db.Appointment.create(appointment);
+    return Appointment.create(appointment);
   }
 
   async getAppointments() {
-    return db.Appointment.findAll();
+    return Appointment.findAll();
   }
 
   async getAppointmentById(id) {
-    return db.Appointment.findByPk(id);
+    return Appointment.findByPk(id);
   }
 
   async updateAppointment(id, appointment) {
-    return db.Appointment.update(appointment, {
+    return Appointment.update(appointment, {
       where: { id: id }
     });
   }
 
   async deleteAppointment(id) {
-    return db.Appointment.destroy({
+    return Appointment.destroy({
       where: { id: id }
     });
   }

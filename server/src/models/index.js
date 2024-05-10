@@ -5,7 +5,7 @@ import process from 'process';
 const { basename } = path;
 const { NODE_ENV } = process.env;
 
-import configJson from '../config/config.json';
+import configJson from '../config/config.json' assert { type: "json" };
 
 const env = NODE_ENV || 'development';
 const config = configJson[env];
