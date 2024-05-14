@@ -1,9 +1,10 @@
-
+import React from "react";
+import HomeHero from "@/components/homeHero/HomeHero";
 
 export default function Home() {
   return (
     <>
-      <h1 className="title text-blue">Hola soy el home</h1>
+      <HomeHero />
     </>
   );
 }
