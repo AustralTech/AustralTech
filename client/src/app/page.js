@@ -1,9 +1,11 @@
+import FormComponent from '../components/FormRegister/Form.jsx';
 
-
-export default function Home() {
+const Home = () => {
   return (
-    <>
-      <h1 className="title text-blue">Hola soy el home</h1>
-    </>
+    <div className="container mx-auto">
+      <FormComponent />
+    </div>
   );
-}
+};
+
+export default Home;
