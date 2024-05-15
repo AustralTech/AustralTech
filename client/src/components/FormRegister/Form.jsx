@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react';
+import axios from 'axios';
 import CampoNombre from './CampoNombre';
 import CampoApellido from './CampoApellido';
 import CampoDNI from './CampoDNI';
@@ -14,15 +15,15 @@ import BotonRegistro from './BotonRegistro';
 
 const FormComponent = () => {
   const [formData, setFormData] = useState({
-    nombre: '',
-    apellido: '',
+    firstName: '',
+    lastName: '',
     dni: '',
-    direccion: '',
-    telefono: '',
+    address: '',
+    phone: '',
     email: '',
-    sexo: '',
-    fechaNacimiento: '',
-    contrasenia: '',
+    gender: '',
+    birthDate: '',
+    password: '',
     repetirContrasenia: ''
   });
 
@@ -34,40 +35,53 @@ const FormComponent = () => {
     }));
   };
 
-  const isValidForm = () => {
-    const { nombre, apellido, dni, direccion, telefono, email, sexo, fechaNacimiento, contrasenia, repetirContrasenia } = formData;
+const isValidForm = () => {
+    const { firstName, lastName, dni, address, phone, email, gender, birthDate, password, repetirContrasenia } = formData;
 
     // Validación de cada campo
-    const isValidNombre = nombre.trim() !== '';
-    const isValidApellido = apellido.trim() !== '';
+    const isValidNombre = firstName.trim() !== '';
+    const isValidApellido = lastName.trim() !== '';
     const isValidDNI = dni.trim() !== '';
-    const isValidDireccion = direccion.trim() !== '';
-    const isValidTelefono = telefono.trim() !== '';
+    const isValidDireccion = address.trim() !== '';
+    const isValidTelefono = phone.trim() !== '';
     const isValidEmail = email.trim() !== '';
-    const isValidSexo = sexo.trim() !== '';
-    const isValidFechaNacimiento = fechaNacimiento.trim() !== '';
-    const isValidContrasenia = contrasenia.trim() !== '' && contrasenia === repetirContrasenia;
+    const isValidSexo = gender.trim() !== '';
+    const isValidFechaNacimiento = birthDate.trim() !== '';
+    const isValidContrasenia = password.trim() !== '' && password === repetirContrasenia;
 
     // Si todos los campos son válidos, devuelve true
     return (isValidNombre && isValidApellido && isValidDNI && isValidDireccion && isValidTelefono && isValidEmail && isValidSexo && isValidFechaNacimiento && isValidContrasenia);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isValidForm()) {
       alert('Error: Por favor, complete todos los campos correctamente.');
       return;
     }
-    // Simulación de envío de datos al backend
-    console.log('Datos enviados al backend:', formData);
-    // Lógica para manejar la respuesta del backend, mostrar mensajes de éxito o error, etc.
+    
+    const dataToSend = { ...formData };
+    delete dataToSend.repetirContrasenia;
+    
+    console.log('FormData:', JSON.stringify(dataToSend, null, 2));
+    
+    try {
+      const response = await axios.post('http://localhost:3000/api/users/', dataToSend);
+      
+      alert('¡Registro exitoso!');
+      // Lógica adicional después de un registro exitoso, si es necesario
+    } catch (error) {
+      console.error('Error:', error.message);
+      alert('Error al enviar los datos.');
+    }
   };
+  
 
   return (
     <div className="flex">
       {/* Mitad Izquierda (Foto del Doctor) */}
       <div className="w-1/2 p-4">
-        <img src="/images/fotodoctor.jpg" alt="Foto del doctor" className="w-full h-[650px] object-cover object-bot rounded-md" />
+        <img src="/images/fotosdoctor.jpg" alt="Foto del doctor" className="w-full h-[650px] object-cover object-bot rounded-md" />
       </div>
       
       {/* Mitad Derecha (Formulario de Registro) */}
@@ -111,7 +125,7 @@ const FormComponent = () => {
               <CampoContrasenia onChange={handleChange} />
             </div>
             <div className="w-1/2 ml-2">
-             <CampoRepetirContrasenia onChange={handleChange} contrasenia={formData.contrasenia} />
+             <CampoRepetirContrasenia onChange={handleChange} contrasenia={formData.password} />
             </div>
           </div>
           <div className="mb-4">

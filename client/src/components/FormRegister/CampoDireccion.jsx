@@ -12,7 +12,7 @@ const CampoDireccion = ({ onChange }) => {
     } else {
       setError('La dirección no puede tener más de 100 caracteres.');
     }
-    onChange({ target: { name: 'direccion', value } }); // Pasamos un objeto con la propiedad name y value
+    onChange({ target: { name: 'address', value } }); // Pasamos un objeto con la propiedad name y value
   };
 
   return (

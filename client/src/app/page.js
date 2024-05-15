@@ -1,11 +1,20 @@
-import FormComponent from '../components/FormRegister/Form.jsx';
+"use client"
+import AOS from "aos"
+import "aos/dist/aos.css"
+import { useEffect } from "react"
 
-const Home = () => {
+export default function Home() {
+  useEffect(() => {
+    // Inicializa AOS solo cuando cambia de página
+    AOS.init({
+      duration: 800,
+      once: false,
+    });
+  }, []);
+
   return (
-    <div className="container mx-auto">
-      <FormComponent />
-    </div>
+    <>
+      <h1 className="title text-blue">Hi! I am <b>Home</b></h1>
+    </>
   );
-};
-
-export default Home;
+}

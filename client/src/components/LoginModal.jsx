@@ -1,42 +1,119 @@
-import React from 'react';
+import { useEffect, useState, useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import Button from "./Button";
+import "../styles/LoginModal.css";
 
-const LoginModal = ({ onClose }) => {
+const LoginModal = ({ isVisible, onClose }) => {
+  if (!isVisible) return null;
+
+  let modalRef = useRef();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleEmailChange = (e) => setEmail(e.target.value);
+  const handlePasswordChange = (e) => setPassword(e.target.value);
+
+  const handleLogin = async () => {
+    try {
+      const response = await fetch('http://localhost:4000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        // Aquí puedes manejar el caso de inicio de sesión exitoso, como redirigir al usuario a otra página
+      } else {
+        // Aquí puedes manejar el caso de inicio de sesión fallido, como mostrar un mensaje de error
+      }
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+    }
+  };
+
+  // e.target
+  function checkClickOutside(e) {
+    if (isVisible && modalRef.current && !modalRef.current.contains(e.target)) {
+      onClose();
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousedown', checkClickOutside);
+    return () => document.removeEventListener('mousedown', checkClickOutside);
+  }, [isVisible])
+
   return (
     <>
-      <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-
-        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-
-        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-          <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-
-            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-              <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                <div class="sm:flex sm:items-start">
-                  <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                    <svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
-                    </svg>
-                  </div>
-                  <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                    <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Deactivate account</h3>
-                    <div class="mt-2">
-                      <p class="text-sm text-gray-500">Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.</p>
-                    </div>
-                  </div>
-                </div>
+      <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flexCenter">
+        <div className={`container relative ${isVisible ? "fade-left" : "fadeOut"}`} ref={modalRef} data-aos="fade-left">
+          <div className="relative">
+            <div className="grid grid-rows-3 gap-0">
+              <div className="col-span-2 flex items-center justify-end mb-2">
+                <button className="text-1xl text-zinc-400" onClick={() => onClose()}>
+                  <FontAwesomeIcon icon={faTimes} className="mb-0 " />
+                </button>
               </div>
-              <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                <button type="button" class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">Deactivate</button>
-                <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
+              <div className="row-span-2 col-span-2">
+                <div className="heading">Bienvenido</div>
               </div>
             </div>
+            <form action="" className="form">
+              <input
+                required
+                className="input"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="E-mail"
+
+              />
+              <input
+                required
+                className="input"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Contraseña"
+
+              />
+              <span className="forgot-password"><a href="#">¿Olvidaste la contraseña?</a></span>
+              <Button
+                type="button"
+                title="Iniciar sesión"
+                variant="login-button rounded"
+              />
+            </form>
+            <div className="social-account-container">
+              <span className="title">O ingresar con</span>
+              <div className="social-accounts">
+                <button className="social-button google">
+                  <svg className="svg" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 488 512">
+                    <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"></path>
+                  </svg>
+                </button>
+                <button className="social-button apple">
+                  <svg className="svg" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">
+                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"></path>
+                  </svg>
+                </button>
+                <button className="social-button twitter">
+                  <svg className="svg" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                    <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <span className="agreement"><a href="#">Contrato de Licencia</a></span>
           </div>
         </div>
       </div>
-
     </>
-  );
-};
+  )
+}
 
-export default LoginModal;
+export default LoginModal

@@ -10,7 +10,7 @@ const CampoApellido = ({ onChange }) => {
       <input
         required
         type="text"
-        name="apellido"
+        name="lastName"
         pattern="[a-zA-Z]+"
         minLength="2"
         maxLength="50"

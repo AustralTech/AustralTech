@@ -13,7 +13,7 @@ const CampoSexo = ({ onChange }) => {
     } else {
       setError('Por favor, selecciona tu sexo.');
     }
-    onChange({ target: { name: 'sexo', value: inputValue } }); // Pasamos un objeto con la propiedad name y value
+    onChange({ target: { name: 'gender', value: inputValue } }); // Pasamos un objeto con la propiedad name y value
   };
 
   return (

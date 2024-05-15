@@ -15,7 +15,7 @@ const CampoFechaNacimiento = ({ onChange }) => {
     } else {
       setError('La fecha de nacimiento no puede ser en el futuro.');
     }
-    onChange({ target: { name: 'fechaNacimiento', value: inputValue } }); // Pasamos un objeto con la propiedad name y value
+    onChange({ target: { name: 'birthDate', value: inputValue } }); // Pasamos un objeto con la propiedad name y value
   };
 
   return (

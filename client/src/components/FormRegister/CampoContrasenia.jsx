@@ -16,7 +16,7 @@ const CampoContrasenia = ({ onChange }) => {
     } else {
       setError('La contraseña debe tener entre 8 y 20 caracteres.');
     }
-    onChange({ target: { name: 'contrasenia', value: inputValue } }); // Pasamos el valor de la contraseña como argumento
+    onChange({ target: { name: 'password', value: inputValue } }); // Pasamos el valor de la contraseña como argumento
   };
 
   return (

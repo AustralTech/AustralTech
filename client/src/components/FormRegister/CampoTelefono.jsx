@@ -23,7 +23,7 @@ const CampoTelefono = ({ valor, onChange }) => {
         className={`shadow appearance-none border ${error ? 'border-red-500' : 'border-gray-300'} rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
         id="telefono"
         type="tel"
-        name="telefono" // Añadimos el nombre del campo
+        name="phone" // Añadimos el nombre del campo
         placeholder="Teléfono"
         value={valor}
         onChange={handleChange}
