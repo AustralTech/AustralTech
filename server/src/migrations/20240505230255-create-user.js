@@ -48,6 +48,7 @@ module.exports = {
         allowNull: false
       },
       HealthInsurance: {
+        defaultValue: 'No posee',
         type: Sequelize.STRING(50),
         allowNull: false
       },
