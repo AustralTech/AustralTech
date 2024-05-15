@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import morgan from 'morgan';
 
 import compression from 'compression';
 import helmet from 'helmet';
@@ -77,14 +78,15 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());
 app.use(cookieParser());
 
-// Cors configuration
-const whitelist = process.env.CORS.split(' ');
+// Logging with morgan
+app.use(morgan('dev'));
+
+const whitelist = [process.env.CORS, 'http://localhost:3001'];
 const corsOptions = {
   origin(origin, callback) {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
       callback(null, true);
     } else {
-      logger.api.error('Not allowed by CORS', { origin });
       callback(new Error('Not allowed by CORS'));
     }
   },
@@ -96,5 +98,7 @@ app.listen(PORT, () => {
 });
 
 app.use('/api', indexRouter);
+
+app.use(errorHandler);
 
 export default app;
