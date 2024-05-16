@@ -1,5 +1,4 @@
-//import db from "../models";
-import Appointment from "../models/appointment";
+import Appointment from "../models/appointment.js";
 
 export default class AppointmentRepository {
   async createAppointment(appointment) {

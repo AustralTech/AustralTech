@@ -1,21 +1,21 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../config/database.js';
 
-const Appointment = sequelize.define('Appointment', {
+const Schedule = sequelize.define('Schedule', {
+  weekDay: {
+    type: DataTypes.DATE,
+    allowNull: false
+  },
+  startTime: {
+    type: DataTypes.TIME,
+    allowNull: false
+  },
+  endTime: {
+    type: DataTypes.TIME,
+    allowNull: false
+  },
   doctorId: {
     type: DataTypes.INTEGER,
-    allowNull: false
-  },
-  patientId: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
-  scheduleId: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
-  isActive: {
-    type: DataTypes.BOOLEAN,
     allowNull: false
   }
 }, {
@@ -25,4 +25,4 @@ const Appointment = sequelize.define('Appointment', {
   paranoid: true,
 });
 
-export default Appointment;
+export default Schedule;
