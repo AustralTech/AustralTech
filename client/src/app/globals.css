@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+@import url('https://db.onlinewebfonts.com/c/961a181da27e7cbc072ec2fb5bbfe2a9?family=Circular+Std+Bold');
+@import url('https://db.onlinewebfonts.com/c/9475d6a0b79c164f9f605673714e75d9?family=Circular+Std+Medium');
 
 @tailwind base;
 @tailwind components;
@@ -49,7 +51,7 @@ body {
   }
 
   .navbar-link {
-    @apply subtitle text-base flexCenter cursor-pointer;
+    @apply subtitle text-base flexCenter cursor-pointer text-black;
   }
 
   .navbar-link:hover {
@@ -58,7 +60,7 @@ body {
   }
 
   .logo-1 {
-    @apply subtitle text-base font-bold;
+    @apply subtitle text-base font-bold text-black;
   }
 
   .logo-1-responsive {
@@ -74,7 +76,6 @@ body {
   }
 
   /* Containers */
-
   .max-container {
     @apply mx-auto max-w-[1440px];
   }
@@ -122,4 +123,3 @@ body {
   scrollbar-width: none;
   /* Firefox */
 }
-

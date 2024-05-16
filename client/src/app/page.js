@@ -3,9 +3,13 @@ import AOS from "aos"
 import "aos/dist/aos.css"
 import { useEffect } from "react"
 
+// Components
+import Services from "@/components/Home/Services/Services"
+import Solutions from "@/components/Home/Solutions"
+
 export default function Home() {
   useEffect(() => {
-    // Inicializa AOS solo cuando cambia de página
+    // Initialize AOS only when changing pages.
     AOS.init({
       duration: 800,
       once: false,
@@ -14,7 +18,8 @@ export default function Home() {
 
   return (
     <>
-      <h1 className="title text-blue">Hi! I am <b>Home</b></h1>
+      <Solutions />
+      <Services />
     </>
   );
 }
