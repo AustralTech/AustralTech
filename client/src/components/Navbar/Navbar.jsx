@@ -8,7 +8,6 @@ import { MobileMenuButton } from "./MobileMenuButton";
 import LoginModal from "../Forms/LoginModal";
 
 const Navbar = () => {
-
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
