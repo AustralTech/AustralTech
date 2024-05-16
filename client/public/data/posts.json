@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Buscar Doctor",
+    "description": "Encuentra al médico especializado que necesitas para tu atención médica",
+    "imageUrl": "https://solcaquito.org.ec/wp-content/uploads/2020/08/doctor_Mesa-de-trabajo-1-297x300.png"
+  },
+  {
+    "id": 2,
+    "title": "Solicitar una consulta",
+    "description": "Programa una consulta para recibir el tratamiento adecuado a tus necesidades",
+    "imageUrl": "https://test.exo.vision/wp-content/uploads/2022/02/consultation.svg"
+  },
+  {
+    "id": 3,
+    "title": "Hacer una cita",
+    "description": "Reserva tu cita para recibir atención médica personalizada y oportuna en nuestra clínica.",
+    "imageUrl": "https://www.pucesa.edu.ec/wp-content/uploads/2024/04/vector-calendario.jpg"
+  }
+]

@@ -1,0 +1,22 @@
+/* Nueva clase personalizada */
+.card-body:hover h3 {
+  color: white;
+  transition: color 0.5s;
+}
+
+.card-body:hover img {
+  filter: brightness(0) invert(1);
+  transition: filter 0.5s;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  width: 10px;
+  height: 10px;
+  padding-bottom: 32px !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px !important;
+}
