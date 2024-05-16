@@ -44,6 +44,7 @@ const User = sequelize.define('User', {
       field: 'BirthDate' // Esto mapea el campo a la columna 'BirthDate' en la base de datos
     },
     healthInsurance: {
+      defaultValue: 'No posee',
       type: DataTypes.STRING(50),
       allowNull: false,
       field: 'HealthInsurance' // Esto mapea el campo a la columna 'HealthInsurance' en la base de datos
