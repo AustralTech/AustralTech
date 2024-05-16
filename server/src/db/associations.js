@@ -1,8 +1,8 @@
-import User from "../models/user";
-import Doctor from "../models/doctor";
-import Schedule from "../models/schedule";
-import Appointment from "../models/appointment";
-import Speciality from "../models/speciality";
+import User from "../models/user.js";
+import Doctor from "../models/doctor.js";
+import Schedule from "../models/schedule.js";
+import Appointment from "../models/appointment.js";
+import Speciality from "../models/speciality.js";
 
 // Un usuario tiene muchos turnos; un turno pertenece a un usuario
 User.hasMany(Appointment, { foreignKey: 'userId', field: 'user_id' });
