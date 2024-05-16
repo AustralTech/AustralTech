@@ -5,14 +5,15 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
+import "../../../styles/services.css"
 
 export default function Cards({ data }) {
   return (
-    <div className="mx-auto max-w-7xl px-6 lg:px-12">
+    <div className="mx-auto max-w-7xl px-6 lg:px-0">
       <div className="mx-auto max-w-2xl mb-16 lg:mb-20">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center">Nuestros servicios</h2>
       </div>
-      <div className="swiper-container" style={{ marginTop: '20px' }}>
+      <div className="swiper-container" >
         <Swiper
           navigation={true}
           autoplay={{
@@ -30,18 +31,17 @@ export default function Cards({ data }) {
               spaceBetween: 20,
             },
             1024: {
-              slidesPerView: 3,
-              spaceBetween: 30,
+              slidesPerView: 4,
+              spaceBetween: 0,
             },
           }}
-          spaceBetween={30}
           className="w-full rounded-lg"
         >
           {data.map((item, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} className="mb-8">
               <article
                 key={index}
-                className="card rounded-none border-solid w-60 h-60 bg-white border border-gray-300 hover:border-blue-500 transition-transform transform hover:scale-105 duration-500 mx-auto"
+                className="card rounded-none border-solid w-60 h-60 bg-white hover:border-blue-500 transition-transform transform hover:scale-105 duration-500 mx-auto"
               >
                 <div className="card-body shadow-xl flexCenter hover:bg-blue transition-colors duration-500">
                   <div className="card-actions flexCenter">
