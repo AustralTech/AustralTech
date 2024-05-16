@@ -2,6 +2,8 @@
 import AOS from "aos"
 import "aos/dist/aos.css"
 import { useEffect } from "react"
+import React from "react"
+import HomeHero from "@/components/homeHero/HomeHero";
 
 export default function Home() {
   useEffect(() => {
@@ -14,7 +16,7 @@ export default function Home() {
 
   return (
     <>
-      <h1 className="title text-blue">Hi! I am <b>Home</b></h1>
+      <HomeHero />
     </>
   );
 }
