@@ -2,10 +2,12 @@
 import AOS from "aos"
 import "aos/dist/aos.css"
 import { useEffect } from "react"
+import React from "react"
 
 // Components
-import Services from "@/components/Home/Services/Services"
+import HomeHero from "@/components/homeHero/HomeHero"
 import Solutions from "@/components/Home/Solutions"
+import Services from "@/components/Home/Services/Services"
 
 export default function Home() {
   useEffect(() => {
@@ -18,6 +20,7 @@ export default function Home() {
 
   return (
     <>
+      <HomeHero />
       <Solutions />
       <Services />
     </>

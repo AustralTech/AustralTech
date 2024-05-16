@@ -13,7 +13,10 @@ font-family: 'Gilroy-Heavy', sans-serif;
 font-family: 'Gilroy-Light', sans-serif;
 font-family: 'Gilroy-Medium', sans-serif;
 font-family: 'Gilroy-Regular', sans-serif;
+font-family: 'Circular Std Medium';
+font-family: 'Circular Std Bold';
 */
+
 
 * {
   padding: 0;
@@ -44,6 +47,10 @@ body {
   /* Titles */
   .title {
     font-family: 'Gilroy-Bold', sans-serif;
+  }
+
+  .hero-title {
+    font-family: 'Circular Std Medium';
   }
 
   .subtitle {
