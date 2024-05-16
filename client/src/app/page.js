@@ -4,6 +4,7 @@ import "aos/dist/aos.css"
 import { useEffect } from "react"
 import React from "react"
 import HomeHero from "@/components/homeHero/HomeHero";
+import FormComponent from "@/components/FormRegister/Form"
 
 export default function Home() {
   useEffect(() => {
@@ -16,7 +17,7 @@ export default function Home() {
 
   return (
     <>
-      <HomeHero />
+      <FormComponent />
     </>
   );
 }
