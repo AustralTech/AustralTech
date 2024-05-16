@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+font-family: 'Gilroy-Bold', sans-serif;
+font-family: 'Gilroy-Heavy', sans-serif;
+font-family: 'Gilroy-Light', sans-serif;
+font-family: 'Gilroy-Medium', sans-serif;
+font-family: 'Gilroy-Regular', sans-serif;
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #FAFBFC;
+  font-family: "Montserrat", sans-serif;
+}
+
+@layer utilities {
+
+  /* Colours */
+  .customblue {
+    color: #317CC2;
+  }
+
+  .customblue-hover {
+    color: #2165a5;
+  }
+
+  .customblue-button {
+    background-color: #2165a5;
+  }
+
+  .title {
+    font-family: 'Gilroy-Bold', sans-serif;
+  }
+
+  .subtitle {
+    font-family: 'Gilroy-Medium', sans-serif;
+  }
+
+  .navbar-link {
+    @apply subtitle text-base flexCenter cursor-pointer;
+  }
+
+  .navbar-link:hover {
+    @apply customblue transition-all;
+    transform: scale(1.05);
+  }
+
+  .logo-1 {
+    @apply subtitle text-base font-bold;
+  }
+
+  .logo-1-responsive {
+    @apply subtitle text-lg font-bold;
+  }
+
+  .logo-2 {
+    @apply subtitle customblue text-base font-bold;
+  }
+
+  .logo-2-responsive {
+    @apply subtitle customblue text-base font-bold;
+  }
+
+  .max-container {
+    @apply mx-auto max-w-[1440px];
+  }
+
+  .padding-container {
+    @apply px-6 lg:px-20 xl:px-0;
+  }
+
+  /* Buttons */
+  .btn_blue {
+    @apply text-sm customblue-button text-white py-2 px-4 rounded;
+  }
+
+  .btn_blue_navbar_responsive {
+    @apply text-2xl customblue-button text-white py-2 px-4 rounded;
+  }
+
+  /* Flex */
+  .flexCenter {
+    @apply flex justify-center items-center;
+  }
+
+  .flexBetween {
+    @apply flex justify-between items-center;
+  }
+
+  .flexStart {
+    @apply flex items-center justify-start;
+  }
+
+  .flexEnd {
+    @apply flex items-center justify-end;
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
