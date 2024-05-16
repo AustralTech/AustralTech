@@ -4,7 +4,7 @@
 
 Somos un equipo apasionados por el desarrollo web que colaboramos en la creación de increíbles páginas web y aplicaciones. 💻💡
 
-## Acerca de nosotros ℹ️
+## Acerca de nosotros
 
 Somos un equipo pequeño pero altamente motivado de desarrolladores web con experiencia en una amplia gama de tecnologías y frameworks modernos. 
 Estamos comprometidos a ofrecer soluciones creativas y de alta calidad para satisfacer las necesidades de nuestros clientes. 🌐🔧
