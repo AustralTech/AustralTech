@@ -28,3 +28,6 @@ src/config/config.json
 *.njsproj
 *.sln
 *.sw?
+
+# Ignorar el archivo config.json en src/config
+src/config/config.json
