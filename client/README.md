@@ -34,3 +34,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Archivos principales
+**page.js*:
+
+*_app.js*: Este archivo es el punto de entrada principal para la aplicación Next.js. Es responsable de envolver todas las páginas con componentes de diseño comunes, estilos globales, manejo de estado global, etc. Utilizado para configurar cosas que deben aplicarse a todas las páginas de tu aplicación, como integrar bibliotecas como AOS, manejar eventos de enrutador, entre otros.
+
+*layout.js*: Este archivo es un componente de diseño específico que define la estructura común de una página, como la barra de navegación, el encabezado, el pie de página, etc. Sirve para encapsular la estructura común de tus páginas y evitar duplicar código en múltiples páginas.

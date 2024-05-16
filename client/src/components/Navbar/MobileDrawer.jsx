@@ -1,12 +1,17 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
-
-import { NAV_LINKS } from "@/constants"
-import Button from './Button';
+import Link from "next/link";
+import { Fragment, useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { NAV_LINKS } from "@/constants";
+import Button from "../Button";
+import 'aos/dist/aos.css';
+import LoginModal from '../Forms/LoginModal';
 
 export function MobileDrawer({ isOpen, onClose }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleLoginModalToggle = () => setIsModalOpen(!isModalOpen);
+
   return (
     <div
       className={`fixed flex flex-col justify-center items-center z-10 top-0 right-0 h-full w-full bg-white text-black transition-transform duration-300 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'
@@ -26,8 +31,11 @@ export function MobileDrawer({ isOpen, onClose }) {
           type="button"
           title="Iniciar sesión"
           variant="btn_blue_navbar_responsive"
+          onClick={handleLoginModalToggle}
         />
       </ul>
+
+      <LoginModal isVisible={isModalOpen} onClose={handleLoginModalToggle} />
     </div>
   );
 }

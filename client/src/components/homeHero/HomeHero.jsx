@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -6,10 +7,10 @@ import Button from '../Button';
 const HomeHero = () => {
   return (
     <section className="bg-gray-100 py-4 md:py-20 ">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div>
-            <h1 className="text-5xl mb-8 text-gray-600 hero-title drop-shadow-lg shadow-black" >Haz una <span className="text-blue drop-shadow-lg shadow-black">diferencia</span> en la vida del otro</h1>
+          <div className="flex flex-col items-center md:text-left text-center md:items-start md:ml-24">
+            <h1 className="text-5xl md:text-6xl mb-8 text-gray-600 hero-title drop-shadow-lg shadow-black" >Haz una <span className="text-blue drop-shadow-lg shadow-black">diferencia</span> en la vida del otro</h1>
             <p className="text-gray-600 mb-8">
               La salud es una de las cosas más importantes para nosotros. Por eso, en nuestro centro de salud, nos esforzamos por brindar la mejor atención a nuestros pacientes.
             </p>
@@ -19,7 +20,7 @@ const HomeHero = () => {
               variant="btn_blue"
             />
           </div>
-          <div className="flex space-x-4">
+          <div className="flex justify-center md:justify-start space-x-4">
             <img
               src="https://th.bing.com/th/id/OIG1.9yT83tt2c76ujX.6Q0gE?pid=ImgGn"
               alt="Hero Image"

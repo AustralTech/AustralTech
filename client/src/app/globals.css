@@ -44,6 +44,7 @@ body {
     background-color: #2165a5;
   }
 
+  /* Titles */
   .title {
     font-family: 'Gilroy-Bold', sans-serif;
   }
@@ -80,6 +81,8 @@ body {
   .logo-2-responsive {
     @apply subtitle customblue text-base font-bold;
   }
+
+  /* Containers */
 
   .max-container {
     @apply mx-auto max-w-[1440px];
