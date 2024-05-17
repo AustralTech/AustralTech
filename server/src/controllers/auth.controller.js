@@ -9,6 +9,7 @@ const signin = (req, res, next) => {
       res.status(200).json({ success: true, user, token })
     })
     .catch((err) => {
+      console.log("Error en el controlador al iniciar sesión", err);
       next(err);
     })
 };

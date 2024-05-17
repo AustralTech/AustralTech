@@ -3,7 +3,6 @@ import jwt from 'jsonwebtoken';
 
 import User from '../db/models/user.js';
 import customError from '../middlewares/customError.js';
-import { where } from 'sequelize';
 
 const generateToken = async (user) => {
   return jwt.sign(
@@ -15,7 +14,7 @@ const generateToken = async (user) => {
 
 const signin = async (email, password) => {
   try {
-    const validUser = await User.findOne({ email });
+    const validUser = await User.findOne({ where: { email } });
     if (!validUser) {
       throw customError(404, "Usuario no encontrado");
     }
@@ -27,8 +26,7 @@ const signin = async (email, password) => {
       throw customError(404, "Credenciales incorrectas");
     }
     const token = await generateToken(validUser);
-    const { password: pass, ...rest } = validUser._doc;
-    return { user: rest, token };
+    return { user: validUser, token };
   } catch (error) {
     throw error;
   }
