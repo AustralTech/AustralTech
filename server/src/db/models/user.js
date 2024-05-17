@@ -27,7 +27,6 @@ const User = sequelize.define('User', {
   },
   address: {
     type: DataTypes.STRING(100),
-    allowNull: false
   },
   phone: {
     type: DataTypes.STRING(20),

@@ -1,15 +1,5 @@
 import User from "../db/models/user.js";
 
-const createUser = async (userData) => {
-  try {
-    const newUser = await User.create(userData);
-    return newUser;
-  } catch (error) {
-    console.log("Error en el repositorio al crear usuario:", error);
-    throw new Error('Error al crear el usuario');
-  }
-};
-
 const getAll = async () => {
   try {
     const users = await User.findAll();
@@ -47,17 +37,19 @@ const updateUserById = async (id, userData) => {
 };
 
 const deleteUserById = async (id) => {
+  console.log("llegue al repo")
   try {
+    console.log("e")
     const user = await User.findByPk(id);
     if (!user) {
       throw new Error('Usuario no encontrado');
     }
-    const updatedUser = await User.destroy({
+    await User.destroy({
       where: {
         id: id
       },
     });
-    return updatedUser;
+    console.log("Hola")
   } catch (error) {
     console.log("Error en el repositorio al eliminar usuario:", error);
     throw new Error(`Error al eliminar el usuario con id ${id}`)
@@ -73,11 +65,25 @@ const checkIfExist = async (key, value) => {
   return response == 1;
 };
 
+const getAdminUser = async () => {
+  try {
+    const user = await User.findOne({
+      where: {
+        isAdmin: true
+      }
+    });
+    return user;
+  } catch (error) {
+    console.log("Error en el repositorio al obtener usuario administrador:", error);
+    throw new Error("Error al obtener el usuario administrador");
+  }
+};
+
 export const userRepository = {
   getAll,
   getById,
   updateUserById,
   deleteUserById,
-  createUser,
-  checkIfExist
+  checkIfExist,
+  getAdminUser
 };
