@@ -4,7 +4,6 @@ import * as path from 'path';
 import * as url from 'url';
 import moment from 'moment';
 
-
 const currentModuleFile = url.fileURLToPath(import.meta.url);
 const logDirectory = path.resolve(path.dirname(currentModuleFile), '..', 'logs');
 const logFileName = `${process.env.APP}-%DATE%.log`;
@@ -34,7 +33,8 @@ const formatter = winston.format.combine(
   winston.format.printf((info) => {
     const { timestamp, level, message, ...meta } = info;
 
-    return `${timestamp} [${level}]: ${message} ${Object.keys(meta).length ? JSON.stringify(meta, null, 2) : ''}`;
+    return `${timestamp} [${level}]: ${message} ${Object.keys(meta).length ? JSON.stringify(meta, null, 2) : ''
+      }`;
   }),
 );
 
