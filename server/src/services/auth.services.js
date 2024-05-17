@@ -65,6 +65,7 @@ const signup = async (user) => {
     }
 
     const hashedPassword = bcryptjs.hashSync(password, 10);
+
     const newUser = new User({
       firstName,
       lastName,
@@ -76,6 +77,7 @@ const signup = async (user) => {
       healthInsurance,
       password: hashedPassword
     });
+
     await newUser.save();
     return newUser;
   } catch (error) {
