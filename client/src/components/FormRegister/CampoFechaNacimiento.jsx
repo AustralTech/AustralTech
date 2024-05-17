@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const CampoFechaNacimiento = ({ onChange }) => {
+const CampoFechaNacimiento = ({ onChange , icon}) => {
   const [error, setError] = useState('');
   const [valor, setValor] = useState('');
 
@@ -21,6 +22,7 @@ const CampoFechaNacimiento = ({ onChange }) => {
   return (
     <div className="mb-4">
       <label className="block text-gray-700 text-sm font-gilroy-bold mb-2" htmlFor="fechaNacimiento">
+      <FontAwesomeIcon icon={icon} className="mr-2" />
         Fecha de Nacimiento
       </label>
       <input

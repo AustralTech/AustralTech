@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const CampoDNI = ({ valor, onChange }) => {
+const CampoDNI = ({ valor, onChange , icon}) => {
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
@@ -17,8 +18,9 @@ const CampoDNI = ({ valor, onChange }) => {
   };
 
   return (
-    <div className="mb-4 w-1/2 relative">
+    <div className="mb-4 relative">
       <label className="block text-gray-700 text-sm font-gilroy-bold mb-2" htmlFor="dni">
+      <FontAwesomeIcon icon={icon} className="mr-2" />
         DNI
       </label>
       <input

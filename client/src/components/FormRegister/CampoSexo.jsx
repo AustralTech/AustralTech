@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const CampoSexo = ({ onChange }) => {
+const CampoSexo = ({ onChange , icon}) => {
   const [error, setError] = useState('');
   const [valor, setValor] = useState('');
 
@@ -19,6 +20,7 @@ const CampoSexo = ({ onChange }) => {
   return (
     <div className="mb-4">
       <label className="block text-gray-700 text-sm font-gilroy-bold mb-2" htmlFor="sexo">
+      <FontAwesomeIcon icon={icon} className="mr-2" />
         Sexo
       </label>
       <select

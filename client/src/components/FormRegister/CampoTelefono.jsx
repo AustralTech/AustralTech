@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const CampoTelefono = ({ valor, onChange }) => {
+const CampoTelefono = ({ valor, onChange, icon }) => {
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
@@ -17,6 +18,7 @@ const CampoTelefono = ({ valor, onChange }) => {
   return (
     <div className="mb-4 w-full relative">
       <label className="block text-gray-700 text-sm font-gilroy-bold mb-2" htmlFor="telefono">
+      <FontAwesomeIcon icon={icon} className="mr-2" />
         Teléfono
       </label>
       <input

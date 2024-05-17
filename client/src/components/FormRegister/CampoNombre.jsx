@@ -1,9 +1,11 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const CampoNombre = ({ onChange }) => {
+const CampoNombre = ({ onChange , icon }) => {
   return (
     <div className="mb-4">
       <label className="block text-gray-700 text-sm font-gilroy-bold mb-2">
+      <FontAwesomeIcon icon={icon} className="mr-2" />
         Nombre
       </label>
       <input

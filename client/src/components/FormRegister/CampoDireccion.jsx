@@ -1,7 +1,8 @@
 // CampoDireccion.js
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const CampoDireccion = ({ onChange }) => {
+const CampoDireccion = ({ onChange , icon }) => {
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
@@ -18,6 +19,7 @@ const CampoDireccion = ({ onChange }) => {
   return (
     <div className="mb-4">
       <label htmlFor="direccion" className="block text-gray-700 text-sm font-gilroy-bold mb-2">
+      <FontAwesomeIcon icon={icon} className="mr-2" />
         Dirección:
       </label>
       <input

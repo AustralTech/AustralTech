@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const CampoEmail = ({ onChange }) => {
+const CampoEmail = ({ onChange , icon}) => {
   const [error, setError] = useState('');
   const [touched, setTouched] = useState(false);
 
@@ -22,6 +23,7 @@ const CampoEmail = ({ onChange }) => {
   return (
     <div className="mb-4 relative">
       <label className="block text-gray-700 text-sm font-gilroy-bold mb-2" htmlFor="email">
+      <FontAwesomeIcon icon={icon} className="mr-2" />
         Email
       </label>
       <input

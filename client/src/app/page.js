@@ -3,12 +3,13 @@ import AOS from "aos"
 import "aos/dist/aos.css"
 import { useEffect } from "react"
 import React from "react"
-import HomeHero from "@/components/homeHero/HomeHero";
-import FormComponent from "@/components/FormRegister/Form"
+
+// Components
+import HomeHero from "@/components/homeHero/HomeHero"
 
 export default function Home() {
   useEffect(() => {
-    // Inicializa AOS solo cuando cambia de página
+    // Initialize AOS only when changing pages.
     AOS.init({
       duration: 800,
       once: false,
@@ -17,7 +18,7 @@ export default function Home() {
 
   return (
     <>
-      <FormComponent />
+      <HomeHero />
     </>
   );
 }

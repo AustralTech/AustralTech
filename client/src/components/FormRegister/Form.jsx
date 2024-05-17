@@ -13,6 +13,11 @@ import CampoContrasenia from './CampoContrasenia';
 import CampoRepetirContrasenia from './CampoRepetirContrasenia';
 import BotonRegistro from './BotonRegistro';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faIdCard, faMapMarker, faPhone, faEnvelope, faLock, faCalendar } from '@fortawesome/free-solid-svg-icons';
+
+
+
 const FormComponent = () => {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -78,54 +83,63 @@ const isValidForm = () => {
   
 
   return (
-    <div className="flex">
+    <div className="flex flex-wrap justify-center">
       {/* Mitad Izquierda (Foto del Doctor) */}
-      <div className="w-1/2 p-4">
-        <img src="/images/fotosdoctor.jpg" alt="Foto del doctor" className="w-full h-[650px] object-cover object-bot rounded-md" />
+      <div className="w-full md:w-1/2 xl:w-1/2 p-4">
+        <img
+          src="/images/fotosdoctor.jpg"
+          alt="Foto del doctor"
+          className="w-full h-[750px] object-cover object-bot rounded-md"
+        />
       </div>
-      
+  
       {/* Mitad Derecha (Formulario de Registro) */}
-      <div className="w-1/2 p-4 bg-blue-50">
-        <form className="max-w-xl mx-auto  rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
-          <p className="text-2xl text-center mb-4">Registro</p>
-          <div className="mb-4 flex items-center">
+      <div className="w-full md:w-1/2 xl:w-1/2 p-4 bg-blue-50">
+        <form
+         style={{ maxWidth: '600px' }}
+          className="max-w-md mx-auto rounded px-8 pt-6 pb-8 mb-4"
+          onSubmit={handleSubmit}
+        >
+          <p className="text-2xl text-center mb-4">Registro de Usuario</p>
+
+          <div className="mb-4 flex justify-between">
             <div className="w-1/2 mr-2">
-              <CampoNombre onChange={handleChange} />
+                <CampoNombre onChange={handleChange} icon={faUser} />
             </div>
             <div className="w-1/2 ml-2">
-              <CampoApellido onChange={handleChange} />
+                <CampoApellido onChange={handleChange} icon={faUser} />
             </div>
           </div>
-          <div className="mb-4 flex items-center">
+          <div className="mb-4 flex justify-between">
             <div className="w-1/2 mr-2">
-              <CampoDNI onChange={handleChange} />
+                <CampoDNI onChange={handleChange} icon={faIdCard} />
             </div>
             <div className="w-1/2 ml-2">
-              <CampoDireccion onChange={handleChange} />
+                <CampoDireccion onChange={handleChange} icon={faMapMarker}/>
             </div>
           </div>
-          <div className="mb-4 flex items-center">
+          <div className="mb-4 flex justify-between">
             <div className="w-1/2 mr-2">
-              <CampoTelefono onChange={handleChange} />
+                <CampoTelefono onChange={handleChange} icon={faPhone} />
             </div>
             <div className="w-1/2 ml-2">
-              <CampoEmail onChange={handleChange} />
+                <CampoEmail onChange={handleChange} icon={faEnvelope} />
             </div>
           </div>
-          <div className="mb-4 flex items-center">
+          <div className="mb-4 flex justify-between">
             <div className="w-1/2 mr-2">
-              <CampoSexo onChange={handleChange} />
+                <CampoSexo onChange={handleChange} icon={faUser} />
             </div>
             <div className="w-1/2 ml-2">
-              <CampoFechaNacimiento onChange={handleChange} />
+                <CampoFechaNacimiento onChange={handleChange} icon={faCalendar} />
             </div>
           </div>
-          <div className="mb-4 flex items-center">
+          <div className="mb-4 flex justify-between">
             <div className="w-1/2 mr-2">
-              <CampoContrasenia onChange={handleChange} />
+                <CampoContrasenia onChange={handleChange} icon={faLock}/>
             </div>
             <div className="w-1/2 ml-2">
-             <CampoRepetirContrasenia onChange={handleChange} contrasenia={formData.password} />
+                <CampoRepetirContrasenia onChange={handleChange} contrasenia={formData.password} icon={faLock} />
             </div>
           </div>
           <div className="mb-4">
