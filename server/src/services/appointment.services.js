@@ -4,21 +4,27 @@ import BaseError from "../errors/baseError.js";
 const appointmentRepository = new AppointmentRepository();
 
 const createAppointment = async (appointmentData) => {
-  return appointmentRepository.createAppointment(appointmentData);
+  try {
+    const appointment = await appointmentRepository.createAppointment(appointmentData);
+    return appointment;
+  } catch (error) {
+    throw BaseError(400, "Error en el servicio. No se pudo crear el turno");
+  }
 };
 
 const getAppointments = async () => {
-  const appointments = appointmentRepository.getAppointments();
-  if (!appointments) {
-    throw BaseError(404, "No appointments found");
+  try {
+    const appointments = await appointmentRepository.getAppointments();
+    return appointments;
+  } catch (error) {
+    throw BaseError(404, "Error en el servicio. No se pudieron obtener los turnos");
   }
-  return appointments;
 };
 
 const getAppointmentById = async (id) => {
   const appointment = appointmentRepository.getAppointmentById(id);
   if (!appointment) {
-    throw BaseError(404, `Appointment with id ${id} not found`);
+    throw BaseError(404, `Error en el servicio. Turno con ${id} no encontrado`);
   }
   return appointment;
 };
@@ -26,7 +32,7 @@ const getAppointmentById = async (id) => {
 const updateAppointment = async (id, appointmentData) => {
   const appointment = await appointmentRepository.getAppointmentById(id);
   if (!appointment) {
-    throw BaseError(404, `Appointment with id ${id} not found`);
+    throw BaseError(404, `Error en el servicio. Turno con ${id} no encontrado`);
   }
   return appointmentRepository.updateAppointment(id, appointmentData);
 };
@@ -34,7 +40,7 @@ const updateAppointment = async (id, appointmentData) => {
 const deleteAppointment = async (id) => {
   const appointment = await appointmentRepository.getAppointmentById(id);
   if (!appointment) {
-    throw BaseError(404, `Appointment with id ${id} not found`);
+    throw BaseError(404, `Error en el servicio. Turno con ${id} no encontrado`);
   }
   return appointmentRepository.deleteAppointment(id);
 };

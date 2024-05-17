@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize';
-import { sequelize } from '../config/database.js';
+import { sequelize } from '../../config/database.js';
 
 const Appointment = sequelize.define('Appointment', {
   doctorId: {
@@ -20,7 +20,7 @@ const Appointment = sequelize.define('Appointment', {
   }
 }, {
   sequelize,
-  modelName: 'Doctor',
+  modelName: 'Appointment',
   timestamps: true,
   paranoid: true,
 });

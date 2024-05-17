@@ -1,10 +1,9 @@
-import {specialityRepository} from "../repositories/specilaity.repository.js"
+import { specialityRepository } from "../repositories/specilaity.repository.js"
 
 
 const createSpeciality = async (specialityData) => {
 	const newSpeciality = await specialityRepository.createSpeciality(specialityData);
 	return newSpeciality;
-	
 };
 
 const getAllSpeciality = async () => {
@@ -47,10 +46,10 @@ const deleteSpeciality = async (id) => {
 };
 
 export const specialityServices = {
-    createSpeciality,
-    getAllSpeciality,
-    getSpecialityById,
-    getSpecialityByName,
-    updateSpeciality,
-    deleteSpeciality,
-}
+	createSpeciality,
+	getAllSpeciality,
+	getSpecialityById,
+	getSpecialityByName,
+	updateSpeciality,
+	deleteSpeciality,
+};

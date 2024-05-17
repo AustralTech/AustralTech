@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize';
-import { sequelize } from '../config/database.js';
+import { sequelize } from '../../config/database.js';
 
 const Schedule = sequelize.define('Schedule', {
   weekDay: {
@@ -20,7 +20,7 @@ const Schedule = sequelize.define('Schedule', {
   }
 }, {
   sequelize,
-  modelName: 'Doctor',
+  modelName: 'Schedule',
   timestamps: true,
   paranoid: true,
 });

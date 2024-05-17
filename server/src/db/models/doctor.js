@@ -1,12 +1,11 @@
-import {Model, DataTypes} from 'sequelize';
-import {sequelize} from '../config/database.js';
-
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../../config/database.js';
 
 const Doctor = sequelize.define('Doctor', {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
-  },  
+  },
   lastname: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -39,11 +38,11 @@ const Doctor = sequelize.define('Doctor', {
     type: DataTypes.BOOLEAN,
     allowNull: false,
   },
-  }, {
-    sequelize,
-    modelName: 'Doctor',
-    timestamps: true,
-    paranoid: true,
-  });
+}, {
+  sequelize,
+  modelName: 'Doctor',
+  timestamps: true,
+  paranoid: true,
+});
 
 export default Doctor;
