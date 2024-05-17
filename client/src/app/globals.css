@@ -58,7 +58,7 @@ body {
   }
 
   .navbar-link {
-    @apply subtitle text-base flexCenter cursor-pointer;
+    @apply subtitle text-base flexCenter cursor-pointer text-black;
   }
 
   .navbar-link:hover {
@@ -67,7 +67,7 @@ body {
   }
 
   .logo-1 {
-    @apply subtitle text-base font-bold;
+    @apply subtitle text-base font-bold text-black;
   }
 
   .logo-1-responsive {
@@ -83,7 +83,6 @@ body {
   }
 
   /* Containers */
-
   .max-container {
     @apply mx-auto max-w-[1440px];
   }
@@ -131,4 +130,3 @@ body {
   scrollbar-width: none;
   /* Firefox */
 }
-

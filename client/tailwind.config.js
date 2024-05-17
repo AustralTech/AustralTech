@@ -19,5 +19,8 @@ export default {
       xl: '1280px', // extra large
     }
   },
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+  ],
 }
+

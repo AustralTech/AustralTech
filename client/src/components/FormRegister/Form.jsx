@@ -71,7 +71,7 @@ const isValidForm = () => {
     console.log('FormData:', JSON.stringify(dataToSend, null, 2));
     
     try {
-      const response = await axios.post('http://localhost:4000/api/users/', dataToSend);
+      const response = await axios.post('http://localhost:4000/api/user/', dataToSend);
       
       alert('¡Registro exitoso!');
       // Lógica adicional después de un registro exitoso, si es necesario

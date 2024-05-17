@@ -1,11 +1,16 @@
 import { Router } from 'express';
-import doctorRouter from './doctor.route.js';
-import userRouter from './user.route.js';
+import userRouter from "./user.route.js";
+import specialityRouter from "./speciality.route.js";
+import doctorRouter from "./doctor.route.js";
+import appointmentRouter from './appointment.route.js';
+import scheduleRouter from './schedule.route.js';
 
 const router = Router();
 
+router.use('/user', userRouter);
+router.use('/appointments', appointmentRouter);
+router.use('/schedules', scheduleRouter);
+router.use('/specialities', specialityRouter);
 router.use('/doctor', doctorRouter);
-router.use('/users', userRouter); 
-
 
 export default router;

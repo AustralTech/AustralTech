@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "image": "https://i.pinimg.com/originals/49/5a/1c/495a1cf21817d684c7eedb2d88e64476.png",
+    "title": "Cardiología"
+  },
+  {
+    "id": 2,
+    "image": "https://cdn0.iconfinder.com/data/icons/dentistry-and-dental-care-2/512/Dentistry-11-512.png",
+    "title": "Odontología"
+  },
+  {
+    "id": 3,
+    "image": "https://cdn3.iconfinder.com/data/icons/science-outline-6/60/Dermatology-scientific-skin-research-dermatologist-512.png",
+    "title": "Dermatología"
+  },
+  {
+    "id": 4,
+    "image": "https://imgtr.ee/images/2024/05/15/270cae9006b1412a83febe06bc7af833.png",
+    "title": "Pediatría"
+  },
+  {
+    "id": 5,
+    "image": "https://imgtr.ee/images/2024/05/15/ec082fb524807e675731e9c9e482799c.png",
+    "title": "Neurología"
+  },
+  {
+    "id": 6,
+    "image": "https://imgtr.ee/images/2024/05/15/2d5d82d5c37e773f60abd72f6b7836ad.png",
+    "title": "Psiquiatría"
+  },
+  {
+    "id": 7,
+    "image": "https://imgtr.ee/images/2024/05/15/f15ddb4b43f944e48b11b3b5d3de35bb.png",
+    "title": "Oftalmología"
+  },
+  {
+    "id": 8,
+    "image": "https://imgtr.ee/images/2024/05/15/5805357360fab02e1fcee3cd0cbb01bd.png",
+    "title": "Ginecología"
+  },
+  {
+    "id": 9,
+    "image": "https://imgtr.ee/images/2024/05/15/e7e1f9224dc438caf697337feed78f2c.png",
+    "title": "Urología"
+  },
+  {
+    "id": 10,
+    "image": "https://imgtr.ee/images/2024/05/15/ce79de0008cba7602b9f63e8baa7a6ea.png",
+    "title": "Oncología"
+  },
+  {
+    "id": 11,
+    "image": "https://imgtr.ee/images/2024/05/15/e24d52ef0a600ad707386abe5ec59619.png",
+    "title": "Ortopedia"
+  },
+  {
+    "id": 12,
+    "image": "https://imgtr.ee/images/2024/05/15/a61bd04c930b414cd0b301f5903ed85a.png",
+    "title": "Radiología"
+  }
+]
