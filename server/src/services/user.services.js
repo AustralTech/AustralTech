@@ -62,12 +62,18 @@ const createUser = async (userData) => {
   }
 };
 
+const getAdminUser = async () => {
+  const adminUser = await userRepository.getAdminUser();
+  return adminUser;
+};
+
 export const userService = {
   getAll,
   getById,
   updateUserById,
   deleteUserById,
-  createUser
+  createUser,
+  getAdminUser
 };
 
 

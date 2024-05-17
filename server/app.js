@@ -16,6 +16,7 @@ import "./src/db/models/user.js";
 import "./src/db/associations.js";
 
 import indexRouter from "./src/routes/index.js";
+import { createAdminUser } from "./src/controllers/auth.controller.js";
 
 import validateEnv from "./src/config/validators/env.js";
 
@@ -29,6 +30,7 @@ const authenticateDatabase = async () => {
   try {
     await sequelize.sync(/* { force: true } */);
     console.log('Connection to the database has been established successfully.');
+    await createAdminUser();
   } catch (error) {
     console.error('Unable to connect to the database:', error.message);
     throw error;

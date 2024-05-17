@@ -73,11 +73,26 @@ const checkIfExist = async (key, value) => {
   return response == 1;
 };
 
+const getAdminUser = async () => {
+  try {
+    const user = await User.findOne({
+      where: {
+        isAdmin: true
+      }
+    });
+    return user;
+  } catch (error) {
+    console.log("Error en el repositorio al obtener usuario administrador:", error);
+    throw new Error("Error al obtener el usuario administrador");
+  }
+};
+
 export const userRepository = {
   getAll,
   getById,
   updateUserById,
   deleteUserById,
   createUser,
-  checkIfExist
+  checkIfExist,
+  getAdminUser
 };
