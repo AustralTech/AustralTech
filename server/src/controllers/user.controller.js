@@ -4,21 +4,11 @@ const getAllUsers = async (req, res, next) => {
   try {
     const users = await userService.getAll();
     if (users.length === 0) {
-      return res.status(404).json({ message: 'No se encontraron usuarios' });
+      return res.status(404).json({ message: "No se encontraron usuarios" });
     }
     res.status(200).json(users);
   } catch (error) {
     console.error("Error al obtener los usuarios:", error);
-    next(error);
-  }
-};
-
-const createUser = async (req, res, next) => {
-  try {
-    const newUser = await userService.createUser(req.body);
-    res.status(201).json(newUser);
-  } catch (error) {
-    console.error("Error al crear el usuario:", error);
     next(error);
   }
 };
@@ -38,7 +28,7 @@ const updateUser = async (req, res, next) => {
 const deleteUserById = async (req, res, next) => {
   try {
     await userService.deleteUserById(req.params.id);
-    res.status(200).json();
+    res.status(200).json({ message: "Usuario eliminado correctamente" });
   } catch (error) {
     console.error("Error al eliminar el usuario:", error);
     next(error);
@@ -57,7 +47,6 @@ const getById = async (req, res, next) => {
 
 export {
   getAllUsers,
-  createUser,
   updateUser,
   deleteUserById,
   getById

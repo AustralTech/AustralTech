@@ -1,20 +1,27 @@
 import { userRepository } from "../repositories/user.repository.js";
+import customError from "../middlewares/customError.js";
 
 const getAll = async () => {
   try {
     const users = await userRepository.getAll();
     return users;
   } catch (error) {
-    throw new Error('Error al obtener todos los usuarios');
+    console.log("Error en el servicio al obtener usuarios:", error);
+    throw error;
   }
 };
 
 const getById = async (id) => {
-  const user = await userRepository.getById(id)
-  if (!user) {
-    throw new Error(`User doesn't exist with id ${id}`)
+  try {
+    const user = await userRepository.getById(id);
+    if (!user) {
+      throw customError(404, `Usuario con id ${id} no encontrado`);
+    }
+    return user;
+  } catch (error) {
+    console.log("Error en el servicio al obtener usuario por ID:", error);
+    throw error;
   }
-  return user;
 };
 
 const updateUserById = async (id, userData) => {
@@ -23,10 +30,14 @@ const updateUserById = async (id, userData) => {
     if (!user) {
       throw new Error('Usuario no encontrado');
     }
+    if ('isAdmin' in userData) {
+      throw customError(400, "No está permitido actualizar el atributo 'isAdmin'");
+    }
     const updatedUser = await user.update(userData);
     return updatedUser;
   } catch (error) {
-    throw new Error('Error al actualizar el usuario');
+    console.log("Error en el servicio al actualizar usuario:", error);
+    throw error;
   }
 };
 
@@ -34,37 +45,26 @@ const deleteUserById = async (id) => {
   try {
     const user = await userRepository.getById(id);
     if (!user) {
-      throw new Error('Usuario no encontrado');
+      throw customError(404, `Usuario con id ${id} no encontrado`);
     }
-    const updatedUser = await user.deleteUserById(id);
-    return updatedUser;
+    if (user.isAdmin) {
+      throw customError(400, "No está permitido eliminar un usuario administrador");
+    }
+    await userRepository.deleteUserById(id);
   } catch (error) {
-    throw new Error('Error al eliminar el usuario');
-  }
-};
-
-const createUser = async (userData) => {
-  try {
-    const emailExist = await userRepository.checkIfExist("email", userData.email);
-    if (emailExist) {
-      throw new Error("An user with email '" + userData.email + "' already exists.");
-    }
-
-    const dniExist = await userRepository.checkIfExist("DNI", userData.dni);
-    if (dniExist) {
-      throw new Error("An user with DNI '" + userData.dni + "' already exists.");
-    }
-
-    const newUser = await userRepository.createUser(userData);
-    return newUser;
-  } catch (error) {
-    throw new Error('Error al crear el usuario: ' + error.message);
+    console.log("Error en el servicio al eliminar usuario:", error);
+    throw error;
   }
 };
 
 const getAdminUser = async () => {
-  const adminUser = await userRepository.getAdminUser();
-  return adminUser;
+  try {
+    const adminUser = await userRepository.getAdminUser();
+    return adminUser;
+  } catch (error) {
+    console.log("Error en el servicio al obtener usuario administrador:", error);
+    throw error;
+  }
 };
 
 export const userService = {
@@ -72,7 +72,6 @@ export const userService = {
   getById,
   updateUserById,
   deleteUserById,
-  createUser,
   getAdminUser
 };
 
