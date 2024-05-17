@@ -7,7 +7,7 @@ const getAll = async () => {
   } catch (error) {
     throw new Error('Error al obtener todos los usuarios');
   }
-}
+};
 
 const getById = async (id) => {
   const user = await userRepository.getById(id)
@@ -28,7 +28,7 @@ const updateUserById = async (id, userData) => {
   } catch (error) {
     throw new Error('Error al actualizar el usuario');
   }
-}
+};
 
 const deleteUserById = async (id) => {
   try {
@@ -41,7 +41,7 @@ const deleteUserById = async (id) => {
   } catch (error) {
     throw new Error('Error al eliminar el usuario');
   }
-}
+};
 
 const createUser = async (userData) => {
   try {

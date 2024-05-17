@@ -1,10 +1,11 @@
-import { scheduleService } from "../services/schedule.services.js"
+import { scheduleService } from "../services/schedule.services.js";
 
 const createSchedule = async (req, res, next) => {
   try {
     const response = await scheduleService.createSchedule(req.body);
     res.status(200).json(response);
   } catch (err) {
+    console.log("Error en el controlador al crear horario:", err);
     next(err);
   }
 };
@@ -14,6 +15,7 @@ const getSchedules = async (req, res, next) => {
     const response = await scheduleService.getSchedules();
     res.status(200).json(response);
   } catch (err) {
+    console.log("Error en el controlador al obtener horarios:", err);
     next(err);
   }
 };
@@ -23,6 +25,7 @@ const getScheduleById = async (req, res, next) => {
     const response = await scheduleService.getScheduleById(req.params.id);
     res.status(200).json(response);
   } catch (err) {
+    console.log("Error en el controlador al obtener horario por ID:", err);
     next(err);
   }
 };
@@ -32,6 +35,7 @@ const updateSchedule = async (req, res, next) => {
     const response = await scheduleService.updateSchedule(req.params.id, req.body);
     res.status(200).json(response);
   } catch (err) {
+    console.log("Error en el controlador al actualizar horario:", err);
     next(err);
   }
 };
@@ -39,8 +43,9 @@ const updateSchedule = async (req, res, next) => {
 const deleteSchedule = async (req, res, next) => {
   try {
     await scheduleService.deleteSchedule(req.params.id);
-    res.status(200).json({ success: true, message: "Schedule deleted successfully" });
+    res.status(200).json({ success: true, message: "Horario eliminado exitosamente" });
   } catch (err) {
+    console.log("Error en el controlador al eliminar horario:", err);
     next(err);
   }
 };
