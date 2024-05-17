@@ -4,6 +4,8 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import Button from "../Button";
 import "../../styles/loginmodal.css";
 
+const url = "http://localhost:4000/api/auth/signin"
+
 const LoginModal = ({ isVisible, onClose }) => {
   if (!isVisible) return null;
 
@@ -17,7 +19,7 @@ const LoginModal = ({ isVisible, onClose }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/auth/login', {
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

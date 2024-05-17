@@ -58,7 +58,7 @@ body {
   }
 
   .navbar-link {
-    @apply subtitle text-base flexCenter cursor-pointer text-black;
+    @apply subtitle text-lg flexCenter cursor-pointer text-black;
   }
 
   .navbar-link:hover {
@@ -67,7 +67,7 @@ body {
   }
 
   .logo-1 {
-    @apply subtitle text-base font-bold text-black;
+    @apply subtitle text-lg font-bold text-black;
   }
 
   .logo-1-responsive {
@@ -75,7 +75,7 @@ body {
   }
 
   .logo-2 {
-    @apply subtitle customblue text-base font-bold;
+    @apply subtitle customblue text-lg font-bold;
   }
 
   .logo-2-responsive {
@@ -94,6 +94,11 @@ body {
   /* Buttons */
   .btn_blue {
     @apply text-sm customblue-button text-white py-2 px-4 rounded;
+  }
+
+  .btn_blue:hover {
+    @apply transition-all;
+    transform: scale(1.05);
   }
 
   .btn_blue_navbar_responsive {
