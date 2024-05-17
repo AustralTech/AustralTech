@@ -20,7 +20,7 @@ const Appointment = sequelize.define('Appointment', {
   }
 }, {
   sequelize,
-  modelName: 'Doctor',
+  modelName: 'Appointment',
   timestamps: true,
   paranoid: true,
 });

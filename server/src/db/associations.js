@@ -4,24 +4,6 @@ import Schedule from "../models/schedule.js";
 import Appointment from "../models/appointment.js";
 import Speciality from "../models/speciality.js";
 
-
-  // Define la relación muchos a muchos entre Doctor y Specialty a través de la tabla intermedia MedicoEspecialidad
- Doctor.belongsToMany(Specialty, {
-   through: 'MedicoEspecialidad', // Nombre de la tabla intermedia
-   foreignKey: 'Medico_ID', // Clave foránea en la tabla intermedia que referencia a Doctor
-   otherKey: 'Especialidad_ID', // Clave foránea en la tabla intermedia que referencia a Specialty
-   as: 'specialties' // Alias para la asociación desde Doctor hacia Specialty
-});
-
-  
- Specialty.belongsToMany(Doctor, {
-   through: 'MedicoEspecialidad', // Nombre de la tabla intermedia
-   foreignKey: 'Especialidad_ID', // Clave foránea en la tabla intermedia que referencia a Specialty
-   otherKey: 'Medico_ID', // Clave foránea en la tabla intermedia que referencia a Doctor
-   as: 'doctors' // Alias para la asociación desde Specialty hacia Doctor
-});
-
-
 // Un usuario tiene muchos turnos; un turno pertenece a un usuario
 User.hasMany(Appointment, { foreignKey: 'userId', field: 'user_id' });
 Appointment.belongsTo(User, { foreignKey: 'userId', field: 'user_id' });

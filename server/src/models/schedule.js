@@ -20,7 +20,7 @@ const Schedule = sequelize.define('Schedule', {
   }
 }, {
   sequelize,
-  modelName: 'Doctor',
+  modelName: 'Schedule',
   timestamps: true,
   paranoid: true,
 });
