@@ -49,7 +49,7 @@ const LoginModal = ({ isVisible, onClose }) => {
 
   return (
     <>
-      <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flexCenter">
+      <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flexCenter z-50">
         <div className={`container relative ${isVisible ? "fade-left" : "fadeOut"}`} ref={modalRef} data-aos="fade-left">
           <div className="relative">
             <div className="grid grid-rows-3 gap-0">
