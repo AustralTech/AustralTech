@@ -83,63 +83,67 @@ const isValidForm = () => {
   
 
   return (
-    <div className="flex flex-wrap justify-center">
+    <div className="flex flex-wrap justify-center bg-blue-50">
       {/* Mitad Izquierda (Foto del Doctor) */}
-      <div className="w-full md:w-1/2 xl:w-1/2 p-4">
+      <div className="w-full md:w-1/2 xl:w-1/2 p-0">
         <img
           src="/images/fotosdoctor.jpg"
           alt="Foto del doctor"
-          className="w-full h-[750px] object-cover object-bot rounded-md"
+          className="w-full h-[750px] object-cover object-center rounded-l-md"
         />
       </div>
   
       {/* Mitad Derecha (Formulario de Registro) */}
-      <div className="w-full md:w-1/2 xl:w-1/2 p-4 bg-blue-50">
+      <div className="w-full md:w-1/2 xl:w-1/2 p-4 bg-blue-50 rounded-r-md">
         <form
-         style={{ maxWidth: '600px' }}
+          style={{ maxWidth: '600px' }}
           className="max-w-md mx-auto rounded px-8 pt-6 pb-8 mb-4"
           onSubmit={handleSubmit}
         >
           <p className="text-2xl text-center mb-4">Registro de Usuario</p>
-
+  
           <div className="mb-4 flex justify-between">
             <div className="w-1/2 mr-2">
-                <CampoNombre onChange={handleChange} icon={faUser} />
+              <CampoNombre onChange={handleChange} icon={faUser} />
             </div>
             <div className="w-1/2 ml-2">
-                <CampoApellido onChange={handleChange} icon={faUser} />
+              <CampoApellido onChange={handleChange} icon={faUser} />
             </div>
           </div>
           <div className="mb-4 flex justify-between">
             <div className="w-1/2 mr-2">
-                <CampoDNI onChange={handleChange} icon={faIdCard} />
+              <CampoDNI onChange={handleChange} icon={faIdCard} />
             </div>
             <div className="w-1/2 ml-2">
-                <CampoDireccion onChange={handleChange} icon={faMapMarker}/>
+              <CampoDireccion onChange={handleChange} icon={faMapMarker} />
             </div>
           </div>
           <div className="mb-4 flex justify-between">
             <div className="w-1/2 mr-2">
-                <CampoTelefono onChange={handleChange} icon={faPhone} />
+              <CampoTelefono onChange={handleChange} icon={faPhone} />
             </div>
             <div className="w-1/2 ml-2">
-                <CampoEmail onChange={handleChange} icon={faEnvelope} />
+              <CampoEmail onChange={handleChange} icon={faEnvelope} />
             </div>
           </div>
           <div className="mb-4 flex justify-between">
             <div className="w-1/2 mr-2">
-                <CampoSexo onChange={handleChange} icon={faUser} />
+              <CampoSexo onChange={handleChange} icon={faUser} />
             </div>
             <div className="w-1/2 ml-2">
-                <CampoFechaNacimiento onChange={handleChange} icon={faCalendar} />
+              <CampoFechaNacimiento onChange={handleChange} icon={faCalendar} />
             </div>
           </div>
           <div className="mb-4 flex justify-between">
             <div className="w-1/2 mr-2">
-                <CampoContrasenia onChange={handleChange} icon={faLock}/>
+              <CampoContrasenia onChange={handleChange} icon={faLock} />
             </div>
             <div className="w-1/2 ml-2">
-                <CampoRepetirContrasenia onChange={handleChange} contrasenia={formData.password} icon={faLock} />
+              <CampoRepetirContrasenia
+                onChange={handleChange}
+                contrasenia={formData.password}
+                icon={faLock}
+              />
             </div>
           </div>
           <div className="mb-4">
@@ -149,6 +153,7 @@ const isValidForm = () => {
       </div>
     </div>
   );
+  
 };
 
 export default FormComponent;
