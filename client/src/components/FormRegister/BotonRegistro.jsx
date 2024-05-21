@@ -12,7 +12,7 @@ const FlechaDerecha = () => {
 const BotonRegistro = ({ texto }) => {
   return (
     <button
-      className="bg-gradient-to-r from-customblue to-customblue-lighter hover:to-customblue text-white font-gilroy-bold py-2 px-4 rounded-md shadow-md transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-customblue focus:ring-offset-white flex items-center bg-blue-500"
+      className="bg-gradient-to-r from-customblue to-blue hover:to-customblue text-white font-gilroy-bold py-2 px-4 rounded-md shadow-md transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-customblue focus:ring-offset-white flex items-center bg-blue-500"
       type="submit"
     >
       <span className="mr-1">{texto}</span>
