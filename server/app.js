@@ -69,7 +69,7 @@ const sess = {
   saveUninitialized: true,
   cookie: {
     sameSite: 'strict',
-    secure: true,
+    secure: process.env.NODE_ENV === 'production',
   },
 };
 app.use(session(sess));

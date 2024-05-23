@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Favicon from "../../public/images/Metadata/favicon.ico";
+import { Providers } from "@/redux/Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,6 +14,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <Providers>
     <html lang="en">
       <body>
         <main className="relative overflow-hidden">
@@ -22,5 +24,6 @@ export default function RootLayout({ children }) {
         {/* <Footer/> */}
       </body>
     </html>
+    </Providers>
   );
 }
