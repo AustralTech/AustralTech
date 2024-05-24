@@ -1,4 +1,5 @@
 import Doctor from '../db/models/doctor.js';
+import Speciality from '../db/models/specialities.js';
 
 const findallDoctors = async () => {
   try {
@@ -62,6 +63,19 @@ const checkEmail = async (email) => {
   }
 }
 
+const findDoctorsSpecialities = async (id) => {
+  try {
+    const doctor = await Doctor.findByPk(id, { include: Speciality });
+    if (!doctor) {
+      throw new Error('Doctor not found');
+    }
+    return doctor.Specialities;
+  } catch (error) {
+    console.error("Error en el repositorio al obtener especialidades del doctor:", error);
+    throw new Error("Error al obtener especialidades del doctor");
+  }
+};
+
 const createDoctor = async (doctorData) => {
   try {
     const newDoctor = await Doctor.create(doctorData);
@@ -79,6 +93,24 @@ const updateDoctor = async (id, doctorData) => {
   } catch (error) {
     console.error("Error en el repositorio al actualizar doctor:", error);
     throw new Error("Error al actualizar doctor");
+  }
+};
+
+const addSpeciality = async (doctorId, specialityId) => {
+  try {
+    const doctor = await Doctor.findByPk(doctorId);
+    if (!doctor) {
+      throw new Error(`Doctor with ID ${doctorId} not found`);
+    }
+    const speciality = await Speciality.findByPk(specialityId);
+    if (!speciality) {
+      throw new Error('Speciality not found');
+    }
+    await doctor.addSpeciality(speciality);
+    return doctor;
+  } catch (error) {
+    console.error("Error en el repositorio al agregar especialidad al doctor:", error);
+    throw new Error("Error al agregar especialidad al doctor");
   }
 };
 
@@ -100,7 +132,9 @@ export const doctorRepository = {
   findDoctorbySpeciality,
   checkLicence,
   checkEmail,
+  findDoctorsSpecialities,
   createDoctor,
   updateDoctor,
+  addSpeciality,
   deleteDoctor
 };
