@@ -32,11 +32,11 @@ const getSpecialityById = async (id) => {
 
 const getSpecialityByName = async (name) => {
   try {
-    const speciality = await Specialities.findAll({ where: { name: name } })
+    const speciality = await Specialities.findOne({ where: { name } });
     return speciality;
   } catch (error) {
-    console.error("Error en el repositorio al obtener especialidad por nombre:", error);
-    throw new Error("Error al obtener especialidad por nombre");
+    console.error('Error al obtener especialidad por nombre:', error);
+    throw new Error('Error al obtener especialidad por nombre');
   }
 };
 

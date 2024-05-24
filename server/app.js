@@ -28,7 +28,7 @@ const app = express();
 // Database connection and generation
 const authenticateDatabase = async () => {
   try {
-    await sequelize.sync(/* { force: true } */);
+    await sequelize.sync({ /*force: true*/ });
     console.log('Connection to the database has been established successfully.');
     await createAdminUser();
   } catch (error) {

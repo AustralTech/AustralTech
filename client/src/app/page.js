@@ -8,6 +8,7 @@ import React from "react"
 import HomeHero from "@/components/homeHero/HomeHero"
 import Solutions from "@/components/Home/Solutions"
 import Services from "@/components/Home/Services/Services"
+import Doctors from "@/components/Home/doctors/Doctors"
 
 export default function Home() {
   useEffect(() => {
@@ -23,6 +24,7 @@ export default function Home() {
       <HomeHero />
       <Solutions />
       <Services />
+      <Doctors />
     </>
   );
 }

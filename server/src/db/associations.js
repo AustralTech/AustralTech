@@ -5,8 +5,8 @@ import Appointment from "./models/appointment.js";
 import Speciality from "./models/specialities.js";
 
 // Un usuario tiene muchos turnos; un turno pertenece a un usuario
-User.hasMany(Appointment, { foreignKey: 'userId', field: 'user_id' });
-Appointment.belongsTo(User, { foreignKey: 'userId', field: 'user_id' });
+User.hasMany(Appointment, { foreignKey: 'patientId', field: 'patient_id' });
+Appointment.belongsTo(User, { foreignKey: 'patientId', field: 'patient_id' });
 
 // Un doctor tiene muchos turnos; un turno pertenece a un doctor
 Doctor.hasMany(Appointment, { foreignKey: 'doctorId', field: 'doctor_id' });

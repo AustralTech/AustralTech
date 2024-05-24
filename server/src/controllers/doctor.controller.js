@@ -30,6 +30,16 @@ const findDoctorbySpeciality = async (req, res) => {
   }
 };
 
+const getDoctorSpecialities = async (req, res) => {
+  try {
+    const specialities  = await doctorServices.findDoctorsSpecialities(req.params.id);
+    res.status(200).json(specialities);
+  } catch (error) {
+    console.error("Error en el controlador al obtener especialidades del doctor:", error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const createDoctor = async (req, res) => {
   try {
     const newDoctor = await doctorServices.createDoctor(req.body);
@@ -50,6 +60,16 @@ const updateDoctor = async (req, res) => {
   }
 };
 
+const addSpeciality = async (req, res) => {
+  try {
+    const doctor = await doctorServices.addSpeciality(req.params.id, req.body.specialityName);
+    res.status(200).json(doctor);
+  } catch (error) {
+    console.error("Error en el controlador al agregar especialidad al doctor:", error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const deleteDoctor = async (req, res) => {
   try {
     const doctorToDelete = await doctorServices.deleteDoctor(req.params.id);
@@ -64,8 +84,10 @@ export default {
   findallDoctors,
   findDoctorById,
   findDoctorbySpeciality,
+  getDoctorSpecialities,
   createDoctor,
   updateDoctor,
+  addSpeciality,
   deleteDoctor
 };
 
