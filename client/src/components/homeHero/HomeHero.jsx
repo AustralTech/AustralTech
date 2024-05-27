@@ -6,7 +6,7 @@ import Button from '../Button';
 
 const HomeHero = () => {
   return (
-    <section className="bg-gray-100 py-4 md:py-20 ">
+    <section className="bg-gray-100 py-5 md:py-32">
       <div className="mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="flex flex-col items-center md:text-left text-center md:items-start md:mx-20">

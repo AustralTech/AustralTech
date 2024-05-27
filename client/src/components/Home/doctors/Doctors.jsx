@@ -49,23 +49,23 @@ const doctors = [
 
 const Doctors = () => {
   return (
-    <div className="bg-gray-100 py-20 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+    <div className="bg-gray-100 py-20 my-auto sm:py-32">
+      <div className="mx-auto my-auto max-w-7xl px-6 lg:px-12 ">
         <div className="mx-auto max-w-2xl">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center">
+          <h2 className="text-3xl mb-6 font-bold tracking-tight text-gray-900 sm:text-4xl text-center">
             Conoce a nuestros doctores
           </h2>
         </div>
-        <div className="mx-auto mt-10 max-w-10xl border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 ">
+        <div className="mx-auto max-w-10xl border-t-2 border-gray-200 pt-10 sm:mt-16 sm:pt-16">
           <Swiper
             navigation 
             autoplay={{
               delay: 3000,
-              disableOnInteraction: false,
+              disableOnInteraction: true,
             }}
             pagination={{ clickable: false  }}
             modules={[Navigation, Pagination, Autoplay]}
-            className="swiper-container w-full rounded-lg"
+            className="swiper-container w-full"
             breakpoints={{
               640: {
                 slidesPerView: 1,
@@ -83,8 +83,8 @@ const Doctors = () => {
             
           >
             {doctors.map((doctor) => (
-              <SwiperSlide key={doctor.id}>
-                <article className="group w-full h-60 flex flex-col mb-10 justify-between bg-white border border-gray-300 hover:border-blue transition-transform transform hover:scale-105 duration-500">
+              <SwiperSlide key={doctor.id} >
+                <article className="group w-full mx-auto h-60 flex flex-col mb-10 mt-2 justify-between bg-white border border-gray-300 hover:border-blue transition-transform transform hover:scale-105 duration-500">
                   <div className="mx-auto">
                     <img
                       src={doctor.imageUrl}
