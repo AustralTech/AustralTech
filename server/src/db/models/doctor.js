@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../../config/database.js';
+import moment from 'moment';
 
 const Doctor = sequelize.define('Doctor', {
   name: {
@@ -13,6 +14,9 @@ const Doctor = sequelize.define('Doctor', {
   birthdate: {
     type: DataTypes.DATE,
     allowNull: false,
+    get() {
+      return moment(this.getDataValue('birthdate')).format('DD-MM-YYYY');
+    }
   },
   address: {
     type: DataTypes.STRING,
@@ -37,6 +41,7 @@ const Doctor = sequelize.define('Doctor', {
   is_active: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
+    defaultValue: true,
   },
 }, {
   sequelize,

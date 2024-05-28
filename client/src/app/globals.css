@@ -40,6 +40,13 @@ body {
     color: #2165a5;
   }
 
+  .footerblue {
+    background-color: #001639;
+  }
+  .label-text{
+    color: white;
+  }
+
   .customblue-button {
     background-color: #2165a5;
   }
@@ -57,6 +64,10 @@ body {
     font-family: 'Gilroy-Medium', sans-serif;
   }
 
+  .footer-title {
+    font-family: 'Circular Std Bold';
+  }
+  
   .navbar-link {
     @apply subtitle text-base flexCenter cursor-pointer text-black;
   }
