@@ -42,19 +42,17 @@ const getSpecialityByName = async (name) => {
 
 const updateSpeciality = async (id, name, description) => {
   try {
-    const [rowsUpdated, [updatedSpeciality]] = await Specialities.update({ name, description }, {
-      where: { id },
-      returning: true
-    })
-    if (rowsUpdated === 0) {
-      throw new Error('Especialidad no encontrada');
-    }
-    return updatedSpeciality;
+    const updatedSpeciality = await Specialities.update( {name, description}, {
+      where: { id }
+    });
+    const speciality = await Specialities.findByPk(id)
+    return speciality
   } catch (error) {
-    console.error("Error en el repositorio al actualizar especialidad:", error);
+    console.error("Error en el servicio al actualizar especialidad:", error);
     throw new Error("Error al actualizar especialidad");
   }
 };
+
 
 const deleteSpeciality = async (id) => {
   try {
