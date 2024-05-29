@@ -1,26 +1,23 @@
 {
   "development": {
     "username": "root",
-    "password": "Melody10",
-    "database": "turnos_web_app",
-    "host": "localhost",
-    "dialect": "mysql",
-    "port": "3306"
+    "password": "39495072",
+    "database": "TurneroDB",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   },
   "test": {
-    "username": "${process.env.DB_USERNAME}",
-    "password": "${process.env.DB_PASSWORD}",
-    "database": "${process.env.DB_DATABASE}",
-    "host": "localhost",
-    "dialect": "mysql",
-    "port": "${process.env.DB_PORT}"
+    "username": "root",
+    "password": "39495072",
+    "database": "TurneroDB",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "Melody10",
-    "database": "${process.env.DB_DATABASE}",
-    "host": "localhost",
-    "dialect": "mysql",
-    "port": "${process.env.DB_PORT}"
+    "password": "39495072",
+    "database": "TurneroDB",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   }
 }
