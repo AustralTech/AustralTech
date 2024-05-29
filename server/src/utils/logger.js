@@ -1,11 +1,9 @@
 import * as winston from 'winston';
 import 'winston-daily-rotate-file';
 import * as path from 'path';
-import * as url from 'url';
 import moment from 'moment';
 
-const currentModuleFile = url.fileURLToPath(import.meta.url);
-const logDirectory = path.resolve(path.dirname(currentModuleFile), '..', 'logs');
+const logDirectory = path.resolve(new URL('../logs/', import.meta.url).pathname);
 const logFileName = `${process.env.APP}-%DATE%.log`;
 
 const customLevels = {

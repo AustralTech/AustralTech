@@ -1,4 +1,9 @@
+//"use client"
+
 import { useEffect, useState, useRef } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import Button from "../Button";

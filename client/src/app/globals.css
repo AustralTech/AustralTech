@@ -24,10 +24,14 @@ font-family: 'Circular Std Bold';
   box-sizing: border-box;
 }
 
+html,
 body {
+  height: 100%;
+  margin: 0;
   background: #FAFBFC;
   font-family: "Montserrat", sans-serif;
 }
+
 
 @layer utilities {
 
@@ -131,7 +135,5 @@ body {
 /* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
   -ms-overflow-style: none;
-  /* IE and Edge */
   scrollbar-width: none;
-  /* Firefox */
 }
