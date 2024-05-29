@@ -1,3 +1,5 @@
+
+
 # Logs
 logs
 .log
@@ -7,11 +9,14 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+
 node_modules
 dist
 dist-ssr
 .local
 .env
+src/config/config.json
+
 
 # Editor directories and files
 .vscode/
@@ -23,3 +28,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Ignorar el archivo config.json en src/config
+src/config/config.json
