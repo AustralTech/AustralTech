@@ -8,6 +8,7 @@ import React from "react"
 import HomeHero from "@/components/homeHero/HomeHero"
 import Solutions from "@/components/Home/Solutions"
 import Services from "@/components/Home/Services/Services"
+import HomeTurn from "@/components/homeTurns/HomeTurn"
 
 export default function Home() {
   useEffect(() => {
@@ -20,9 +21,11 @@ export default function Home() {
 
   return (
     <>
+
       <HomeHero />
       <Solutions />
-      <Services />
+      <Services /> 
+      <HomeTurn />
     </>
   );
 }
