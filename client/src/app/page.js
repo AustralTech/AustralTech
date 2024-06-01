@@ -8,9 +8,12 @@ import React from "react"
 import HomeHero from "@/components/homeHero/HomeHero"
 import Solutions from "@/components/Home/Solutions"
 import Services from "@/components/Home/Services/Services"
+import SpecialtiesComponent from "@/components/Specilities/Specilities"
 import Doctors from "@/components/Home/doctors/Doctors"
 
 export default function Home() {
+
+
   useEffect(() => {
     // Initialize AOS only when changing pages.
     AOS.init({
@@ -19,11 +22,14 @@ export default function Home() {
     });
   }, []);
 
+  
+
   return (
     <>
       <HomeHero />
       <Solutions />
       <Services />
+      <SpecialtiesComponent/>
       <Doctors />
     </>
   );

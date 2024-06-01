@@ -1,4 +1,5 @@
 import { doctorRepository } from "../repositories/doctor.repository.js";
+import { specialityRepository } from "../repositories/specilaity.repository.js";
 
 const findallDoctors = async () => {
   try {
@@ -28,6 +29,17 @@ const findDoctorbySpeciality = async (specialtyId) => {
   } catch (error) {
     console.error("Error en el servicio al obtener doctor por especialidad:", error);
     throw new Error("Error al obtener doctor por especialidad");
+  }
+};
+
+const findDoctorsSpecialities = async (id) => {
+  try {
+    const specialities = await doctorRepository.findDoctorsSpecialities(id);
+    const specialityNames = specialities.map(speciality => speciality.name); 
+    return specialityNames;
+  } catch (error) {
+    console.error("Error en el servicio al obtener especialidades del doctor:", error);
+    throw new Error("Error al obtener especialidades del doctor");
   }
 };
 
@@ -83,6 +95,24 @@ const updateDoctor = async (id, doctorData) => {
   }
 };
 
+const addSpeciality = async (id, specialityName) => {
+  try {
+    const doctor = await doctorRepository.findDoctorbyid(id);
+    if (!doctor) {
+      throw new Error(`Doctor with ID ${id} not found`);
+    }
+    const speciality = await specialityRepository.getSpecialityByName(specialityName);
+    if (!speciality) {
+      throw new Error(`Speciality named ${specialityName} not found`);
+    }
+    await doctorRepository.addSpeciality(id, speciality.id);
+    return doctor;
+  } catch (error) {
+    console.error("Error en el servicio al agregar especialidad al doctor:", error);
+    throw error;
+  }
+};
+
 const deleteDoctor = async (id) => {
   try {
     const doctorToDelete = await doctorRepository.findDoctorbyid(id);
@@ -100,8 +130,9 @@ export default {
   findallDoctors,
   findDoctorById,
   findDoctorbySpeciality,
+  findDoctorsSpecialities,
   createDoctor,
   updateDoctor,
+  addSpeciality,
   deleteDoctor
 };
-

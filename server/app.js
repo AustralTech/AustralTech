@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 import compression from "compression";
 import helmet from "helmet";
 import session from "express-session";
-
+import logger from "./src/utils/logger.js";
 import { sequelize } from "./src/config/database.js";
 import "./src/db/models/appointment.js";
 import "./src/db/models/doctor.js";
@@ -69,7 +69,7 @@ const sess = {
   saveUninitialized: true,
   cookie: {
     sameSite: 'strict',
-    secure: true,
+    secure: process.env.NODE_ENV === 'production',
   },
 };
 app.use(session(sess));
@@ -93,7 +93,7 @@ const corsOptions = {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
       callback(null, true);
     } else {
-      logger.api.error('Not allowed by CORS', { origin });
+      logger.error('Not allowed by CORS', { origin });
       callback(new Error('Not allowed by CORS'));
     }
   },

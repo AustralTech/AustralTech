@@ -5,8 +5,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
-
-
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAllDoctors, fetchDoctorById } from '../../../redux/DoctorsSlice';
 
 const doctors = [
   {
@@ -48,6 +49,23 @@ const doctors = [
 ];
 
 const DoctorsCards = () => {
+  const dispatch = useDispatch();
+  const { doctors, status, error } = useSelector(state => state.doctors);
+  
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchAllDoctors());
+    }
+  }, [status, dispatch]);
+  
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  } else if (status === 'failed') {
+    return <div>Error: {error}</div>;
+  }
+  
+  console.log(doctors);
+
   return (
     <div className="mx-auto max-w-7xl px-6 lg:px-0">
       <div className="mx-auto max-w-2xl mb-16 lg:mb-20">
@@ -85,15 +103,15 @@ const DoctorsCards = () => {
                 <article className="card rounded-none w-60 h-60 shadow-xl flex flex-col mb-10 mt-2 justify-center items-center bg-white border border-gray-300 hover:border-blue transition-transform transform hover:scale-105 duration-500 mx-auto">
                   <div className="items-center">
                     <img
-                      src={doctor.imageUrl}
+                      src={"https://www.cariverplate.com.ar/imagenes/jugadores/2023-09/1831-borja_653x667.png"}
                       alt=""
                       className="h-24 w-24 md:h-40 md:w-40 bg-gray-50"
                     />
                     <h3 className="mt-3 text-lg font-semibold leading-6 text-center text-gray-900 group-hover:text-gray-600">
-                      {doctor.name}
+                      {doctor.name} {doctor.lastname}
                     </h3>
                     <p className="mt-1 mb-1 text-sm leading-6 text-center text-gray-400 group-hover:text-gray-500">
-                      {doctor.specialty}
+                      {doctor.Specialities.length > 0 ? doctor.Specialities[0].name : ''}
                     </p>
                   </div>
                 </article>
