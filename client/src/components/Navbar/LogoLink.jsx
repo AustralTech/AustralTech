@@ -4,10 +4,11 @@ import Image from "next/image";
 export function LogoLink() {
   return (
     <>
-      <div className="text-center sm:mb-0 lg:pt-1 lg:mt-1 lg:pl-5 lg:ml-5">
+      <div className="text-center sm:mb-0 lg:pt-1 lg:mt-1 lg:ml-5">
         <Link href="/">
           <div className="flex items-center space-x-2 cursor-pointer">
             <Image src="/logo-health-care-blue.svg" alt="logo" width={25} height={10} />
+            {/* <img src="https://flowbite.com/docs/images/logo.svg" className=" h-8 me-3" alt="logo" /> */}
             <span className="logo-1">Fueguinos<span className="logo-2">.io</span></span>
           </div>
         </Link>

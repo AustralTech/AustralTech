@@ -1,0 +1,17 @@
+.scroll-sidebar {
+  position: relative;
+}
+
+.scroll-sidebar .simplebar-scrollbar::before {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.scroll-sidebar .simplebar-track.simplebar-vertical {
+  width: 8px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.scroll-sidebar:hover .simplebar-track.simplebar-vertical {
+  opacity: 1;
+}

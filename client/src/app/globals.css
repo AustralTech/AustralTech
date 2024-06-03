@@ -17,7 +17,6 @@ font-family: 'Circular Std Medium';
 font-family: 'Circular Std Bold';
 */
 
-
 * {
   padding: 0;
   margin: 0;
@@ -27,6 +26,11 @@ font-family: 'Circular Std Bold';
 body {
   background: #FAFBFC;
   font-family: "Montserrat", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 @layer utilities {
@@ -43,7 +47,8 @@ body {
   .footerblue {
     background-color: #001639;
   }
-  .label-text{
+
+  .label-text {
     color: white;
   }
 
@@ -67,7 +72,7 @@ body {
   .footer-title {
     font-family: 'Circular Std Bold';
   }
-  
+
   .navbar-link {
     @apply subtitle text-base flexCenter cursor-pointer text-black;
   }

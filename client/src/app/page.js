@@ -10,10 +10,9 @@ import Solutions from "@/components/Home/Solutions"
 import Services from "@/components/Home/Services/Services"
 import SpecialtiesComponent from "@/components/Specilities/Specilities"
 import Doctors from "@/components/Home/doctors/Doctors"
+import Navbar from "@/components/Navbar/Navbar"
 
 export default function Home() {
-
-
   useEffect(() => {
     // Initialize AOS only when changing pages.
     AOS.init({
@@ -22,14 +21,13 @@ export default function Home() {
     });
   }, []);
 
-  
-
   return (
     <>
+      <Navbar />
       <HomeHero />
       <Solutions />
       <Services />
-      <SpecialtiesComponent/>
+      <SpecialtiesComponent />
       <Doctors />
     </>
   );

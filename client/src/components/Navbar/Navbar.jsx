@@ -32,7 +32,9 @@ const Navbar = () => {
   return (
     <Fragment>
       <nav className="flex justify-between z-30 py-5 px-5">
-        <LogoLink />
+        <div className="pl-5">
+          <LogoLink />
+        </div>
         <DesktopNavLinks />
         <div className="lg:flexCenter hidden lg:pr-5 lg:mr-5">
           <Button

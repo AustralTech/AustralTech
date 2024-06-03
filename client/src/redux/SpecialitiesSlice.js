@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-
 const initialState = {
   specialities: [],
   speciality: null,
@@ -9,9 +8,7 @@ const initialState = {
   error: null,
 };
 
-console.log(process.env.API_URL_SP);
-
-const API_URL = "http://localhost:3000/api/specialities";
+const API_URL = "http://localhost:4000/api/specialities";
 
 export const createSpeciality = createAsyncThunk(
   'specialities/createSpeciality',

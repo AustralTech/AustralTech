@@ -17,6 +17,26 @@ const nextConfig = {
       '/registro': { page: '/signup', query: { title: 'Nuevo usuario' } },
     }
   },
+  async rewrites() {
+    return [
+      {
+        source: '/specialities',
+        destination: '/main/specialities'
+      },
+      {
+        source: '/about',
+        destination: '/main/about'
+      },
+      {
+        source: '/contact',
+        destination: '/main/contact'
+      },
+      {
+        source: '/profile',
+        destination: '/main/profile'
+      },
+    ]
+  }
 };
 
 export default nextConfig;
