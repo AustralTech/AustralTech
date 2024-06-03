@@ -304,7 +304,7 @@ export default function Dashboard() {
                     href="#"
                     class="btn text-base font-medium hover:bg-blue-700"
                     aria-current="page"
-                  >Upgrade to Pro</a>
+                  >Administrador</a>
                   <div
                     class="hs-dropdown relative inline-flex [--placement:bottom-right] sm:[--trigger:hover]"
                   >
@@ -313,7 +313,7 @@ export default function Dashboard() {
                     >
                       <img
                         class="object-cover w-9 h-9 rounded-full"
-                        src="./assets/images/profile/user-1.jpg"
+                        src="/images/administradora.png"
                         alt=""
                         aria-hidden="true"
                       />
@@ -369,7 +369,7 @@ export default function Dashboard() {
               <div class="card">
                 <div class="card-body">
                   <h4 class="text-gray-500 text-lg font-semibold mb-5">
-                    Upcoming Schedules
+                    Tareas del día
                   </h4>
                   <ul class="timeline-widget relative">
                     <li
@@ -392,7 +392,7 @@ export default function Dashboard() {
                       </div>
                       <div class="timeline-desc py-[6px] px-4">
                         <p class="text-gray-500 text-sm font-normal">
-                          Payment received from John Doe of $385.90
+                          Registrar nuevos medicos
                         </p>
                       </div>
                     </li>
@@ -416,7 +416,7 @@ export default function Dashboard() {
                       </div>
                       <div class="timeline-desc py-[6px] px-4 text-sm">
                         <p class="text-gray-500 font-semibold">
-                          New sale recorded
+                          Reunión de personal
                         </p>
                         <a href="javascript:void('')" class="text-blue-600"
                         >#ML-3467</a>
@@ -443,7 +443,7 @@ export default function Dashboard() {
                       </div>
                       <div class="timeline-desc py-[6px] px-4">
                         <p class="text-gray-500 text-sm font-normal">
-                          Payment was made of $64.95 to Michael
+                          Tarea
                         </p>
                       </div>
                     </li>
@@ -468,7 +468,7 @@ export default function Dashboard() {
                       </div>
                       <div class="timeline-desc py-[6px] px-4 text-sm">
                         <p class="text-gray-500 font-semibold">
-                          New sale recorded
+                          Tarea
                         </p>
                         <a href="javascript:void('')" class="text-blue-600"
                         >#ML-3467</a>
@@ -495,7 +495,7 @@ export default function Dashboard() {
                       </div>
                       <div class="timeline-desc py-[6px] px-4">
                         <p class="text-gray-500 text-sm font-semibold">
-                          New arrival recorded
+                          Tarea
                         </p>
                       </div>
                     </li>
@@ -517,7 +517,7 @@ export default function Dashboard() {
                       </div>
                       <div class="timeline-desc py-[6px] px-4">
                         <p class="text-gray-500 text-sm font-normal">
-                          Payment Done
+                          Tarea
                         </p>
                       </div>
                     </li>
@@ -528,7 +528,7 @@ export default function Dashboard() {
                 <div class="card h-full">
                   <div class="card-body">
                     <h4 class="text-gray-500 text-lg font-semibold mb-5">
-                      Top Paying Clients
+                      Últimos medicos registrados
                     </h4>
                     <div class="relative overflow-x-auto">
                       {/* <!-- table --> */}
@@ -538,16 +538,16 @@ export default function Dashboard() {
                         <thead>
                           <tr class="text-sm">
                             <th scope="col" class="p-4 font-semibold">
-                              Profile
+                              Medico
                             </th>
                             <th scope="col" class="p-4 font-semibold">
-                              Hour Rate
+                              Consulta
                             </th>
                             <th scope="col" class="p-4 font-semibold">
-                              Extra classes
+                              Turnos
                             </th>
                             <th scope="col" class="p-4 font-semibold">
-                              Status
+                              Estado
                             </th>
                           </tr>
                         </thead>
@@ -567,12 +567,12 @@ export default function Dashboard() {
                                 >
                                   <h3 class="font-bold">Mark J. Freeman</h3>
                                   <span class="font-normal"
-                                  >Prof. English</span>
+                                  >Ginecología</span>
                                 </div>
                               </div>
                             </td>
                             <td class="p-4">
-                              <h3 class="font-medium">$150/hour</h3>
+                              <h3 class="font-medium">$20000</h3>
                             </td>
                             <td class="p-4">
                               <h3 class="font-medium text-teal-500">+53</h3>
@@ -580,7 +580,7 @@ export default function Dashboard() {
                             <td class="p-4">
                               <span
                                 class="inline-flex items-center py-2 px-4 rounded-3xl font-semibold bg-teal-400 text-teal-500"
-                              >Available</span>
+                              >Disponible</span>
                             </td>
                           </tr>
                           <tr>
@@ -598,12 +598,12 @@ export default function Dashboard() {
                                 >
                                   <h3 class="font-bold">Nina R. Oldman</h3>
                                   <span class="font-normal"
-                                  >Prof. History</span>
+                                  >Oftalmología</span>
                                 </div>
                               </div>
                             </td>
                             <td class="p-4">
-                              <h3 class="font-medium">$150/hour</h3>
+                              <h3 class="font-medium">$20000</h3>
                             </td>
                             <td class="p-4">
                               <h3 class="font-medium text-teal-500">+68</h3>
@@ -611,7 +611,7 @@ export default function Dashboard() {
                             <td class="p-4">
                               <span
                                 class="inline-flex items-center py-2 px-4 rounded-3xl font-semibold bg-blue-500 text-blue-600"
-                              >In Class</span>
+                              >Atendiendo</span>
                             </td>
                           </tr>
                           <tr>
@@ -628,12 +628,12 @@ export default function Dashboard() {
                                   class="flex flex-col gap-1 text-gray-500"
                                 >
                                   <h3 class="font-bold">Arya H. Shah</h3>
-                                  <span class="font-normal">Prof. Maths</span>
+                                  <span class="font-normal">Cardiología</span>
                                 </div>
                               </div>
                             </td>
                             <td class="p-4">
-                              <h3 class="font-medium">$150/hour</h3>
+                              <h3 class="font-medium">$20000</h3>
                             </td>
                             <td class="p-4">
                               <h3 class="font-medium text-teal-500">+94</h3>
@@ -641,7 +641,7 @@ export default function Dashboard() {
                             <td class="p-4">
                               <span
                                 class="inline-flex items-center py-2 px-4 rounded-3xl font-semibold bg-red-400 text-red-500"
-                              >Absent</span>
+                              >Ausente</span>
                             </td>
                           </tr>
                           <tr>
@@ -658,12 +658,12 @@ export default function Dashboard() {
                                   class="flex flex-col gap-1 text-gray-500"
                                 >
                                   <h3 class="font-bold">June R. Smith</h3>
-                                  <span class="font-normal">Prof. Arts</span>
+                                  <span class="font-normal">Kinesiología</span>
                                 </div>
                               </div>
                             </td>
                             <td class="p-4">
-                              <h3 class="font-medium">$150/hour</h3>
+                              <h3 class="font-medium">$20000</h3>
                             </td>
                             <td class="p-4">
                               <h3 class="font-medium text-teal-500">+27</h3>
@@ -671,7 +671,7 @@ export default function Dashboard() {
                             <td class="p-4">
                               <span
                                 class="inline-flex items-center py-2 px-4 rounded-3xl font-semibold bg-yellow-400 text-yellow-500"
-                              >Absent</span>
+                              >De licencia</span>
                             </td>
                           </tr>
                         </tbody>
