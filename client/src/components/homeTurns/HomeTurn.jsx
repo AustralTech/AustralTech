@@ -1,12 +1,12 @@
 import React from 'react';
-// import exampleImage from '../assets/example-image.jpg'; // Asegúrate de tener una imagen en esta ruta
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import Button from '../Button'; // Asegúrate de que la ruta sea correcta
 
 const HomeTurn = () => {
   return (
-    <div className="relative max-w-4xl mx-auto bg-white rounded-lg shadow-2xl p-6 flex items-center transform hover:scale-105 transition duration-500">
-      <div className="w-3/4 text-black mr-6">
+    <div className="relative max-w-7xl mx-auto p-6 flex items-center"> 
+      <div className="w-3/4 text-black mr-6"> 
         <h2 className="text-3xl font-bold mb-4 flex items-center">
           <FontAwesomeIcon icon={faCalendarAlt} className="mr-2" />
           Saca tu turno fácilmente
@@ -21,21 +21,23 @@ const HomeTurn = () => {
         <blockquote className="italic text-gray-500 mb-4">
           "La medicina es la ciencia de la incertidumbre y el arte de la probabilidad." - William Osler
         </blockquote>
-        <a 
-          href="/sacar-turno" 
-          className="bg-blue-500 text-white py-2 px-4 rounded-full shadow-lg hover:bg-blue-600 transition duration-300 inline-block font-semibold">
-          Sacar Turno
-        </a>
+        <Button
+          type="button"
+          title="Saca un turno"
+          variant="btn_blue"
+        />
       </div>
-      <div className="relative w-1/4">
-  <img 
-    src="/images/fototurn.jpg" 
-    alt="Hospital" 
-    className="absolute -right-12 -bottom-40 rounded-lg object-cover shadow-lg" 
-    style={{ width: '250px', height: '350px' }} 
-  />
-</div>
-
+      <div className="relative w-1/4"> 
+        <img 
+          src="/images/fototurn.jpg" 
+          alt="Hospital" 
+          className="rounded-lg object-cover md:w-200px md:h-280px sm:w-150px sm:h-220px xs:w-100px xs:h-150px" 
+          style={{
+            width: '250px',
+            height: '350px',
+          }} 
+        />
+      </div>
     </div>
   );
 };
